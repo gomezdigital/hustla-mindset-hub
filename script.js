@@ -1,7 +1,6 @@
 /* =========================================================
    HUSTLA MINDSET HUB V1
-   MAIN JAVASCRIPT
-   Compatible with the current index.html + style.css
+   Main JavaScript
    ========================================================= */
 
 (function () {
@@ -18,325 +17,161 @@
 
         /* =================================================
            ELEMENTS
-        ================================================= */
+           ================================================= */
 
-        var siteHeader = document.getElementById("siteHeader");
+        var header = document.getElementById("siteHeader");
         var menuToggle = document.getElementById("menuToggle");
         var navigation = document.getElementById("navigation");
-
-        var navLinks = document.querySelectorAll(
-            ".navigation a"
-        );
-
-        var yearElement = document.getElementById("year");
-
-        var toolButtons = document.querySelectorAll(
-            ".tool-button"
-        );
-
-        var categoryCards = document.querySelectorAll(
-            ".category-card"
-        );
-
-        var contentCards = document.querySelectorAll(
-            ".content-card"
-        );
-
-        var heroCards = document.querySelectorAll(
-            ".hero-card"
-        );
+        var year = document.getElementById("year");
 
 
         /* =================================================
-           MOBILE NAVIGATION
-        ================================================= */
+           FOOTER YEAR
+           ================================================= */
+
+        if (year) {
+            year.textContent = new Date().getFullYear();
+        }
+
+
+        /* =================================================
+           HEADER SCROLL EFFECT
+           ================================================= */
+
+        function updateHeader() {
+
+            if (!header) {
+                return;
+            }
+
+            if (window.scrollY > 40) {
+                header.classList.add("scrolled");
+            } else {
+                header.classList.remove("scrolled");
+            }
+        }
+
+        updateHeader();
+
+        window.addEventListener("scroll", updateHeader, {
+            passive: true
+        });
+
+
+        /* =================================================
+           MOBILE MENU
+           ================================================= */
 
         if (menuToggle && navigation) {
 
             menuToggle.addEventListener("click", function () {
 
-                navigation.classList.toggle("active");
+                var isOpen =
+                    navigation.classList.toggle("active");
 
-                var menuOpen =
-                    navigation.classList.contains("active");
+                menuToggle.classList.toggle("active", isOpen);
 
                 menuToggle.setAttribute(
                     "aria-expanded",
-                    menuOpen ? "true" : "false"
+                    isOpen ? "true" : "false"
                 );
 
                 menuToggle.setAttribute(
                     "aria-label",
-                    menuOpen
+                    isOpen
                         ? "Close navigation"
                         : "Open navigation"
                 );
-
-                menuToggle.classList.toggle(
-                    "active",
-                    menuOpen
-                );
-
             });
 
-        }
 
+            /* Close menu after clicking a navigation link */
 
-        /* =================================================
-           CLOSE MOBILE MENU AFTER NAVIGATION CLICK
-        ================================================= */
+            var navigationLinks =
+                navigation.querySelectorAll("a");
 
-        navLinks.forEach(function (link) {
+            navigationLinks.forEach(function (link) {
 
-            link.addEventListener("click", function () {
+                link.addEventListener("click", function () {
 
-                if (!navigation || !menuToggle) {
-                    return;
-                }
+                    navigation.classList.remove("active");
+                    menuToggle.classList.remove("active");
 
-                navigation.classList.remove("active");
+                    menuToggle.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
 
-                menuToggle.classList.remove("active");
-
-                menuToggle.setAttribute(
-                    "aria-expanded",
-                    "false"
-                );
-
-                menuToggle.setAttribute(
-                    "aria-label",
-                    "Open navigation"
-                );
+                    menuToggle.setAttribute(
+                        "aria-label",
+                        "Open navigation"
+                    );
+                });
 
             });
-
-        });
-
-
-        /* =================================================
-           HEADER SCROLL EFFECT
-        ================================================= */
-
-        function updateHeader() {
-
-            if (!siteHeader) {
-                return;
-            }
-
-            if (window.scrollY > 30) {
-
-                siteHeader.classList.add("scrolled");
-
-            } else {
-
-                siteHeader.classList.remove("scrolled");
-
-            }
-
-        }
-
-        window.addEventListener(
-            "scroll",
-            updateHeader,
-            { passive: true }
-        );
-
-        updateHeader();
-
-
-        /* =================================================
-           CURRENT YEAR
-        ================================================= */
-
-        if (yearElement) {
-
-            yearElement.textContent =
-                new Date().getFullYear();
-
         }
 
 
         /* =================================================
-           SMOOTH SCROLLING
-        ================================================= */
+           SMOOTH ANCHOR BEHAVIOUR
+           ================================================= */
 
-        var anchorLinks = document.querySelectorAll(
-            'a[href^="#"]'
-        );
+        var anchorLinks =
+            document.querySelectorAll('a[href^="#"]');
 
         anchorLinks.forEach(function (link) {
 
-            link.addEventListener(
-                "click",
-                function (event) {
+            link.addEventListener("click", function (event) {
 
-                    var targetId =
-                        this.getAttribute("href");
+                var targetId =
+                    link.getAttribute("href");
 
-                    if (
-                        !targetId ||
-                        targetId === "#"
-                    ) {
-                        return;
-                    }
-
-                    var target =
-                        document.querySelector(targetId);
-
-                    if (!target) {
-                        return;
-                    }
-
-                    event.preventDefault();
-
-                    target.scrollIntoView({
-                        behavior: "smooth",
-                        block: "start"
-                    });
-
+                if (
+                    !targetId ||
+                    targetId === "#"
+                ) {
+                    return;
                 }
-            );
 
-        });
+                var target =
+                    document.querySelector(targetId);
 
-
-        /* =================================================
-           CATEGORY CARD INTERACTION
-        ================================================= */
-
-        categoryCards.forEach(function (card) {
-
-            card.addEventListener(
-                "click",
-                function (event) {
-
-                    var href =
-                        card.getAttribute("href");
-
-                    /*
-                     * The current category cards use href="#".
-                     * Prevent the page from jumping to the top.
-                     */
-
-                    if (!href || href === "#") {
-
-                        event.preventDefault();
-
-                        var title =
-                            card.querySelector("h3");
-
-                        if (title) {
-
-                            showNotification(
-                                title.textContent +
-                                " section coming soon."
-                            );
-
-                        }
-
-                    }
-
+                if (!target) {
+                    return;
                 }
-            );
 
-        });
+                event.preventDefault();
 
+                target.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
 
-        /* =================================================
-           FEATURED CONTENT LINKS
-        ================================================= */
-
-        var contentLinks =
-            document.querySelectorAll(
-                ".content-card .text-link"
-            );
-
-        contentLinks.forEach(function (link) {
-
-            link.addEventListener(
-                "click",
-                function (event) {
-
-                    var href =
-                        this.getAttribute("href");
-
-                    if (!href || href === "#") {
-
-                        event.preventDefault();
-
-                        showNotification(
-                            "More Hustla Mindset content is coming soon."
-                        );
-
-                    }
-
-                }
-            );
-
-        });
-
-
-        /* =================================================
-           TOOL BUTTONS
-        ================================================= */
-
-        toolButtons.forEach(function (button, index) {
-
-            button.addEventListener(
-                "click",
-                function () {
-
-                    launchTool(index);
-
-                }
-            );
-
-        });
-
-
-        /* =================================================
-           COMMUNITY BUTTON
-        ================================================= */
-
-        var communityButtons =
-            document.querySelectorAll(
-                'a[href="#community"]'
-            );
-
-        communityButtons.forEach(function (button) {
-
-            /*
-             * These already point to the community section,
-             * so we leave their normal navigation behavior.
-             */
-
-            button.addEventListener(
-                "click",
-                function () {
-
-                    if (navigation) {
-                        navigation.classList.remove("active");
-                    }
-
-                }
-            );
+            });
 
         });
 
 
         /* =================================================
            SCROLL REVEAL
-        ================================================= */
+           ================================================= */
 
-        var revealElements =
-            document.querySelectorAll(
-                ".category-card, " +
-                ".content-card, " +
-                ".tool-card, " +
-                ".community-section, " +
-                ".about-grid, " +
-                ".agency-section"
-            );
+        var revealElements = document.querySelectorAll(
+            ".section-heading, " +
+            ".category-card, " +
+            ".content-card, " +
+            ".tool-card, " +
+            ".community-section, " +
+            ".about-grid, " +
+            ".agency-section"
+        );
+
+
+        revealElements.forEach(function (element) {
+
+            element.classList.add("reveal-ready");
+
+        });
 
 
         if ("IntersectionObserver" in window) {
@@ -345,25 +180,20 @@
                 new IntersectionObserver(
                     function (entries, observer) {
 
-                        entries.forEach(
-                            function (entry) {
+                        entries.forEach(function (entry) {
 
-                                if (
-                                    entry.isIntersecting
-                                ) {
+                            if (entry.isIntersecting) {
 
-                                    entry.target.classList.add(
-                                        "reveal-visible"
-                                    );
+                                entry.target.classList.add(
+                                    "reveal-visible"
+                                );
 
-                                    observer.unobserve(
-                                        entry.target
-                                    );
-
-                                }
-
+                                observer.unobserve(
+                                    entry.target
+                                );
                             }
-                        );
+
+                        });
 
                     },
                     {
@@ -372,84 +202,237 @@
                 );
 
 
-            revealElements.forEach(
-                function (element) {
+            revealElements.forEach(function (element) {
 
-                    element.classList.add(
-                        "reveal-ready"
-                    );
+                revealObserver.observe(element);
 
-                    revealObserver.observe(
-                        element
-                    );
+            });
 
-                }
-            );
+        } else {
+
+            revealElements.forEach(function (element) {
+
+                element.classList.add("reveal-visible");
+
+            });
 
         }
 
 
         /* =================================================
-           HERO CARD HOVER INTERACTION
-        ================================================= */
+           CATEGORY CARD FEEDBACK
+           ================================================= */
 
-        heroCards.forEach(function (card) {
+        var categoryCards =
+            document.querySelectorAll(".category-card");
 
-            card.addEventListener(
-                "mouseenter",
-                function () {
+        categoryCards.forEach(function (card) {
 
-                    card.style.zIndex = "10";
+            card.addEventListener("click", function (event) {
 
+                var href =
+                    card.getAttribute("href");
+
+                if (href === "#") {
+
+                    event.preventDefault();
+
+                    showNotification(
+                        "This Hustla Mindset section is coming soon."
+                    );
                 }
-            );
 
-            card.addEventListener(
-                "mouseleave",
-                function () {
-
-                    card.style.zIndex = "";
-
-                }
-            );
+            });
 
         });
 
 
         /* =================================================
-           ESCAPE KEY
-           CLOSE MOBILE MENU
-        ================================================= */
+           CONTENT CARD FEEDBACK
+           ================================================= */
 
-        document.addEventListener(
-            "keydown",
+        var contentLinks =
+            document.querySelectorAll(
+                ".content-card .text-link"
+            );
+
+        contentLinks.forEach(function (link) {
+
+            link.addEventListener("click", function (event) {
+
+                var href =
+                    link.getAttribute("href");
+
+                if (href === "#") {
+
+                    event.preventDefault();
+
+                    showNotification(
+                        "More Hustla Mindset content is coming soon."
+                    );
+                }
+
+            });
+
+        });
+
+
+        /* =================================================
+           TOOL BUTTONS
+           ================================================= */
+
+        var toolButtons =
+            document.querySelectorAll(".tool-button");
+
+        toolButtons.forEach(function (button, index) {
+
+            button.addEventListener("click", function () {
+
+                launchTool(index);
+
+            });
+
+        });
+
+
+        /* =================================================
+           KEYBOARD ACCESS
+           ================================================= */
+
+        document.addEventListener("keydown", function (event) {
+
+            if (event.key === "Escape") {
+
+                closeToolModal();
+
+            }
+
+        });
+
+
+    });
+
+
+    /* =====================================================
+       TOOL SYSTEM
+       ===================================================== */
+
+    function launchTool(index) {
+
+        var tools = [
+
+            {
+                title: "Business Idea Generator",
+                description:
+                    "Tell Hustla Mindset what you are interested in and generate a practical business idea.",
+                type: "business"
+            },
+
+            {
+                title: "Content Idea Generator",
+                description:
+                    "Choose a topic and generate content ideas for TikTok, Instagram, YouTube or other platforms.",
+                type: "content"
+            },
+
+            {
+                title: "Hustle Roadmap",
+                description:
+                    "Build a simple action roadmap based on your current skill or interest.",
+                type: "roadmap"
+            },
+
+            {
+                title: "AI Tool Finder",
+                description:
+                    "Choose what you want AI to help you with and discover useful tool categories.",
+                type: "ai"
+            }
+
+        ];
+
+
+        var tool = tools[index];
+
+        if (!tool) {
+            return;
+        }
+
+
+        var overlay =
+            document.createElement("div");
+
+        overlay.className =
+            "tool-modal-overlay";
+
+
+        var modal =
+            document.createElement("div");
+
+        modal.className =
+            "tool-modal";
+
+
+        var closeButton =
+            document.createElement("button");
+
+        closeButton.className =
+            "tool-modal-close";
+
+        closeButton.innerHTML = "×";
+
+        closeButton.setAttribute(
+            "aria-label",
+            "Close tool"
+        );
+
+
+        var content =
+            document.createElement("div");
+
+
+        content.innerHTML =
+            getToolHTML(tool);
+
+
+        modal.appendChild(closeButton);
+        modal.appendChild(content);
+
+        overlay.appendChild(modal);
+
+        document.body.appendChild(overlay);
+
+
+        /* Open animation */
+
+        requestAnimationFrame(function () {
+
+            overlay.classList.add("active");
+
+        });
+
+
+        /* Close button */
+
+        closeButton.addEventListener(
+            "click",
+            function () {
+
+                closeToolModal();
+
+            }
+        );
+
+
+        /* Click outside */
+
+        overlay.addEventListener(
+            "click",
             function (event) {
 
-                if (event.key === "Escape") {
+                if (event.target === overlay) {
 
-                    if (navigation) {
-                        navigation.classList.remove(
-                            "active"
-                        );
-                    }
-
-                    if (menuToggle) {
-
-                        menuToggle.classList.remove(
-                            "active"
-                        );
-
-                        menuToggle.setAttribute(
-                            "aria-expanded",
-                            "false"
-                        );
-
-                        menuToggle.setAttribute(
-                            "aria-label",
-                            "Open navigation"
-                        );
-
-                    }
+                    closeToolModal();
 
                 }
 
@@ -457,416 +440,371 @@
         );
 
 
-        /* =================================================
-           TOOL SYSTEM
-        ================================================= */
+        /* Tool form */
 
-        function launchTool(index) {
-
-            if (index === 0) {
-
-                businessIdeaGenerator();
-
-            } else if (index === 1) {
-
-                contentIdeaGenerator();
-
-            } else if (index === 2) {
-
-                hustleRoadmap();
-
-            } else if (index === 3) {
-
-                aiToolFinder();
-
-            }
-
-        }
-
-
-        /* =================================================
-           BUSINESS IDEA GENERATOR
-        ================================================= */
-
-        function businessIdeaGenerator() {
-
-            var ideas = [
-
-                "AI-powered social media content service",
-
-                "Local business website creation service",
-
-                "Student digital skills platform",
-
-                "Short-form video editing service",
-
-                "AI automation service for small businesses",
-
-                "Personal branding service for creators",
-
-                "Digital CV and portfolio creation service",
-
-                "Online tutoring and study-resource platform"
-
-            ];
-
-            var idea =
-                randomItem(ideas);
-
-            showToolResult(
-                "BUSINESS IDEA GENERATOR",
-                idea
+        var actionButton =
+            modal.querySelector(
+                ".tool-modal-action"
             );
 
-        }
 
-
-        /* =================================================
-           CONTENT IDEA GENERATOR
-        ================================================= */
-
-        function contentIdeaGenerator() {
-
-            var ideas = [
-
-                "3 skills every young entrepreneur should learn",
-
-                "What I would do if I had zero money",
-
-                "5 free AI tools students should know",
-
-                "Why consistency beats motivation",
-
-                "How to start learning a digital skill",
-
-                "3 mistakes beginners make when starting online",
-
-                "How to turn one skill into multiple income streams",
-
-                "What nobody tells you about starting a business"
-
-            ];
-
-            var idea =
-                randomItem(ideas);
-
-            showToolResult(
-                "CONTENT IDEA GENERATOR",
-                idea
-            );
-
-        }
-
-
-        /* =================================================
-           HUSTLE ROADMAP
-        ================================================= */
-
-        function hustleRoadmap() {
-
-            var roadmap =
-                "STEP 1 — Choose one valuable skill.\n\n" +
-                "STEP 2 — Learn the fundamentals.\n\n" +
-                "STEP 3 — Build 2–3 real projects.\n\n" +
-                "STEP 4 — Share your work publicly.\n\n" +
-                "STEP 5 — Find people who need the skill.\n\n" +
-                "STEP 6 — Offer a simple service.\n\n" +
-                "STEP 7 — Improve using feedback.";
-
-            showToolResult(
-                "YOUR HUSTLE ROADMAP",
-                roadmap
-            );
-
-        }
-
-
-        /* =================================================
-           AI TOOL FINDER
-        ================================================= */
-
-        function aiToolFinder() {
-
-            var tools = [
-
-                "Writing → AI writing assistants",
-
-                "Design → AI image and design tools",
-
-                "Coding → AI coding assistants",
-
-                "Research → AI research tools",
-
-                "Marketing → AI content and marketing tools",
-
-                "Study → AI learning assistants",
-
-                "Automation → AI workflow automation tools"
-
-            ];
-
-            var tool =
-                randomItem(tools);
-
-            showToolResult(
-                "AI TOOL FINDER",
-                tool
-            );
-
-        }
-
-
-        /* =================================================
-           RANDOM ITEM
-        ================================================= */
-
-        function randomItem(array) {
-
-            return array[
-                Math.floor(
-                    Math.random() * array.length
-                )
-            ];
-
-        }
-
-
-        /* =================================================
-           TOOL RESULT MODAL
-        ================================================= */
-
-        function showToolResult(title, text) {
-
-            var existing =
-                document.getElementById(
-                    "toolResultModal"
-                );
-
-            if (existing) {
-                existing.remove();
-            }
-
-
-            var modal =
-                document.createElement("div");
-
-            modal.id = "toolResultModal";
-
-            modal.innerHTML =
-
-                '<div class="tool-modal-overlay">' +
-
-                    '<div class="tool-modal">' +
-
-                        '<button ' +
-                        'class="tool-modal-close" ' +
-                        'aria-label="Close">' +
-                        '&times;' +
-                        '</button>' +
-
-                        '<p class="eyebrow">' +
-                        title +
-                        '</p>' +
-
-                        '<div class="tool-result">' +
-                        escapeHTML(text).replace(
-                            /\n/g,
-                            "<br>"
-                        ) +
-                        '</div>' +
-
-                        '<button class="primary-button tool-modal-action">' +
-                        'Generate Another' +
-                        '</button>' +
-
-                    '</div>' +
-
-                '</div>';
-
-
-            document.body.appendChild(modal);
-
-
-            var closeButton =
-                modal.querySelector(
-                    ".tool-modal-close"
-                );
-
-            var actionButton =
-                modal.querySelector(
-                    ".tool-modal-action"
-                );
-
-
-            closeButton.addEventListener(
-                "click",
-                function () {
-
-                    modal.remove();
-
-                }
-            );
-
+        if (actionButton) {
 
             actionButton.addEventListener(
                 "click",
                 function () {
 
-                    modal.remove();
-
-                    /*
-                     * Small delay makes the second
-                     * generation feel intentional.
-                     */
-
-                    setTimeout(
-                        function () {
-
-                            if (
-                                title ===
-                                "BUSINESS IDEA GENERATOR"
-                            ) {
-
-                                businessIdeaGenerator();
-
-                            } else if (
-                                title ===
-                                "CONTENT IDEA GENERATOR"
-                            ) {
-
-                                contentIdeaGenerator();
-
-                            } else if (
-                                title ===
-                                "YOUR HUSTLE ROADMAP"
-                            ) {
-
-                                hustleRoadmap();
-
-                            } else if (
-                                title ===
-                                "AI TOOL FINDER"
-                            ) {
-
-                                aiToolFinder();
-
-                            }
-
-                        },
-                        150
+                    processTool(
+                        tool.type,
+                        modal
                     );
 
                 }
             );
 
+        }
 
-            modal
-                .querySelector(
-                    ".tool-modal-overlay"
-                )
-                .addEventListener(
-                    "click",
-                    function (event) {
 
-                        if (
-                            event.target ===
-                            this
-                        ) {
+        /* Focus first field */
 
-                            modal.remove();
+        var firstInput =
+            modal.querySelector(
+                "input, select, textarea"
+            );
 
-                        }
+        if (firstInput) {
 
-                    }
-                );
+            setTimeout(function () {
+
+                firstInput.focus();
+
+            }, 250);
+
+        }
+
+    }
+
+
+    /* =====================================================
+       TOOL HTML
+       ===================================================== */
+
+    function getToolHTML(tool) {
+
+        var html =
+            "<h3>" +
+            tool.title +
+            "</h3>" +
+
+            "<p>" +
+            tool.description +
+            "</p>";
+
+
+        if (tool.type === "business") {
+
+            html +=
+
+                '<input id="toolInput" ' +
+                'type="text" ' +
+                'placeholder="Example: fashion, coding, fitness">' +
+
+                '<button class="tool-modal-action">' +
+                "Generate Business Idea →" +
+                "</button>" +
+
+                '<div class="tool-result"></div>';
 
         }
 
 
-        /* =================================================
-           NOTIFICATION
-        ================================================= */
+        if (tool.type === "content") {
 
-        function showNotification(message) {
+            html +=
 
-            var notification =
-                document.createElement("div");
+                '<input id="toolInput" ' +
+                'type="text" ' +
+                'placeholder="Example: motivation, AI, business">' +
 
-            notification.className =
-                "hustla-notification";
+                '<select id="contentPlatform">' +
 
-            notification.textContent =
-                message;
+                '<option value="TikTok">TikTok</option>' +
+                '<option value="Instagram">Instagram</option>' +
+                '<option value="YouTube">YouTube</option>' +
+                '<option value="Blog">Blog</option>' +
 
-            document.body.appendChild(
-                notification
-            );
+                "</select>" +
 
+                '<button class="tool-modal-action">' +
+                "Generate Content Ideas →" +
+                "</button>" +
 
-            setTimeout(
-                function () {
-
-                    notification.classList.add(
-                        "show"
-                    );
-
-                },
-                20
-            );
-
-
-            setTimeout(
-                function () {
-
-                    notification.classList.remove(
-                        "show"
-                    );
-
-                    setTimeout(
-                        function () {
-
-                            notification.remove();
-
-                        },
-                        300
-                    );
-
-                },
-                2800
-            );
+                '<div class="tool-result"></div>';
 
         }
 
 
-        /* =================================================
-           ESCAPE HTML
-        ================================================= */
+        if (tool.type === "roadmap") {
 
-        function escapeHTML(text) {
+            html +=
 
-            var div =
-                document.createElement("div");
+                '<input id="toolInput" ' +
+                'type="text" ' +
+                'placeholder="Example: coding, marketing, design">' +
 
-            div.textContent = text;
+                '<button class="tool-modal-action">' +
+                "Build My Roadmap →" +
+                "</button>" +
 
-            return div.innerHTML;
+                '<div class="tool-result"></div>';
 
         }
 
 
-        /* =================================================
-           FINAL LOAD MESSAGE
-        ================================================= */
+        if (tool.type === "ai") {
 
-        console.log(
-            "%cHUSTLA MINDSET HUB V1",
-            "font-size:18px;font-weight:900;"
-        );
+            html +=
 
-        console.log(
-            "Learn. Build. Execute."
-        );
+                '<select id="toolInput">' +
 
-    });
+                '<option value="Study">Study & Research</option>' +
+                '<option value="Business">Business</option>' +
+                '<option value="Content">Content Creation</option>' +
+                '<option value="Design">Design</option>' +
+                '<option value="Coding">Coding</option>' +
+                '<option value="Marketing">Marketing</option>' +
 
-})();
+                "</select>" +
+
+                '<button class="tool-modal-action">' +
+                "Find AI Tools →" +
+                "</button>" +
+
+                '<div class="tool-result"></div>';
+
+        }
+
+
+        return html;
+
+    }
+
+
+    /* =====================================================
+       PROCESS TOOLS
+       ===================================================== */
+
+    function processTool(type, modal) {
+
+        var input =
+            modal.querySelector("#toolInput");
+
+        var result =
+            modal.querySelector(".tool-result");
+
+
+        if (!input || !result) {
+            return;
+        }
+
+
+        var value =
+            input.value.trim();
+
+
+        if (!value) {
+
+            result.innerHTML =
+                "<strong>Enter something first.</strong><br>" +
+                "Give the tool a topic, skill or interest.";
+
+            result.classList.add("show");
+
+            return;
+        }
+
+
+        /* ================================================
+           BUSINESS
+           ================================================ */
+
+        if (type === "business") {
+
+            var businessIdeas = [
+
+                "Create a niche digital service around " +
+                value + " for small businesses.",
+
+                "Build a content page teaching beginners " +
+                "about " + value + ".",
+
+                "Create a simple digital product that helps " +
+                "people improve their " + value + " skills.",
+
+                "Offer freelance services related to " +
+                value + " through social media.",
+
+                "Build a community focused on learning and " +
+                "sharing resources about " + value + "."
+
+            ];
+
+
+            var businessIdea =
+                randomItem(businessIdeas);
+
+
+            result.innerHTML =
+                "<strong>Your Hustle Idea</strong><br><br>" +
+                businessIdea +
+                "<br><br>" +
+                "<strong>First move:</strong> Find 5 people " +
+                "who have the problem your idea solves and " +
+                "learn what they actually need.";
+
+
+            result.classList.add("show");
+
+        }
+
+
+        /* ================================================
+           CONTENT
+           ================================================ */
+
+        if (type === "content") {
+
+            var platform =
+                modal.querySelector(
+                    "#contentPlatform"
+                ).value;
+
+
+            var contentIdeas = [
+
+                "3 things beginners should know about " +
+                value,
+
+                "I wish I knew this about " +
+                value + " earlier.",
+
+                "5 mistakes people make when learning " +
+                value,
+
+                "How I would start learning " +
+                value + " from zero.",
+
+                "The truth about making progress in " +
+                value,
+
+                "One simple way to improve your " +
+                value + " skills."
+
+            ];
+
+
+            result.innerHTML =
+                "<strong>" +
+                platform +
+                " Content Ideas</strong><br><br>" +
+
+                "1. " + contentIdeas[0] + "<br><br>" +
+
+                "2. " + contentIdeas[1] + "<br><br>" +
+
+                "3. " + contentIdeas[2] + "<br><br>" +
+
+                "4. " + contentIdeas[3] + "<br><br>" +
+
+                "5. " + contentIdeas[4] + "<br><br>" +
+
+                "6. " + contentIdeas[5];
+
+
+            result.classList.add("show");
+
+        }
+
+
+        /* ================================================
+           ROADMAP
+           ================================================ */
+
+        if (type === "roadmap") {
+
+            result.innerHTML =
+
+                "<strong>Hustle Roadmap: " +
+                value +
+                "</strong><br><br>" +
+
+                "<strong>STEP 1 — Learn</strong><br>" +
+                "Spend the first stage understanding the " +
+                "fundamentals of " + value + ".<br><br>" +
+
+                "<strong>STEP 2 — Practice</strong><br>" +
+                "Build small projects instead of only " +
+                "watching tutorials.<br><br>" +
+
+                "<strong>STEP 3 — Document</strong><br>" +
+                "Share your progress publicly and create " +
+                "evidence of your skills.<br><br>" +
+
+                "<strong>STEP 4 — Offer</strong><br>" +
+                "Find people or businesses who could benefit " +
+                "from your skill.<br><br>" +
+
+                "<strong>STEP 5 — Improve</strong><br>" +
+                "Use feedback to improve your skill and " +
+                "increase the value you provide.";
+
+
+            result.classList.add("show");
+
+        }
+
+
+        /* ================================================
+           AI TOOL FINDER
+           ================================================ */
+
+        if (type === "ai") {
+
+            var recommendations = {
+
+                Study:
+                    "AI writing assistants, research tools, " +
+                    "study assistants and note-taking tools.",
+
+                Business:
+                    "AI business idea tools, automation platforms, " +
+                    "customer-support assistants and analytics tools.",
+
+                Content:
+                    "AI writing tools, video assistants, image " +
+                    "generators, caption tools and content planners.",
+
+                Design:
+                    "AI image generators, design assistants, " +
+                    "presentation builders and branding tools.",
+
+                Coding:
+                    "AI coding assistants, debugging tools, " +
+                    "code explainers and development copilots.",
+
+                Marketing:
+                    "AI copywriting tools, SEO assistants, " +
+                    "social-media tools and campaign helpers."
+
+            };
+
+
+            result.innerHTML =
+
+                "<strong>AI Toolkit Category</strong><br><br>" +
+
+                recommendations[value] +
+
+                "<br><br>" +
+
+                "<strong>Next move:</strong> Compare
