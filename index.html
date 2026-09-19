@@ -3,6 +3,10 @@
 
 <head>
 
+    <!-- =====================================================
+         BASIC DOCUMENT SETUP
+    ===================================================== -->
+
     <meta charset="UTF-8">
 
     <meta
@@ -10,21 +14,109 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>Hustla Mindset — Build The Life You Keep Talking About.</title>
-
-    <meta
-        name="description"
-        content="Hustla Mindset is a digital movement for mindset, skills, money, business, AI, opportunities and action."
-    >
-
     <meta
         name="theme-color"
         content="#090909"
     >
 
+    <meta
+        name="color-scheme"
+        content="dark"
+    >
+
+    <meta
+        name="description"
+        content="Hustla Mindset is a digital community for mindset, skills, money, business, AI, opportunities and action."
+    >
+
+    <meta
+        name="keywords"
+        content="Hustla Mindset, mindset, digital skills, business, AI, money, opportunities, entrepreneurship, personal growth"
+    >
+
+    <meta
+        name="author"
+        content="Hustla Mindset"
+    >
+
+    <meta
+        name="robots"
+        content="index, follow"
+    >
+
+
+    <!-- =====================================================
+         SOCIAL SHARING
+    ===================================================== -->
+
+    <meta
+        property="og:type"
+        content="website"
+    >
+
+    <meta
+        property="og:title"
+        content="Hustla Mindset — Build The Life You Keep Talking About."
+    >
+
+    <meta
+        property="og:description"
+        content="A digital movement for people who want more knowledge, more skills, more opportunities and more action."
+    >
+
+    <meta
+        property="og:site_name"
+        content="Hustla Mindset"
+    >
+
+    <meta
+        name="twitter:card"
+        content="summary_large_image"
+    >
+
+    <meta
+        name="twitter:title"
+        content="Hustla Mindset — Build The Life You Keep Talking About."
+    >
+
+    <meta
+        name="twitter:description"
+        content="Learn. Build. Execute."
+    >
+
+
+    <!-- =====================================================
+         TITLE
+    ===================================================== -->
+
+    <title>
+        Hustla Mindset — Build The Life You Keep Talking About.
+    </title>
+
+
+    <!-- =====================================================
+         STYLES
+    ===================================================== -->
+
     <link
         rel="stylesheet"
-        href="style.css?v=2"
+        href="style.css?v=3"
+    >
+
+
+    <!-- =====================================================
+         PREFETCH / PERFORMANCE
+    ===================================================== -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
     >
 
 </head>
@@ -33,11 +125,27 @@
 <body>
 
 
-<!-- =====================================================
-     PAGE LOADER
-===================================================== -->
+<!-- =========================================================
+     ACCESSIBILITY — SKIP LINK
+========================================================= -->
 
-<div class="page-loader" id="pageLoader">
+<a
+    href="#main-content"
+    class="skip-link"
+>
+    Skip to content
+</a>
+
+
+<!-- =========================================================
+     PAGE LOADER
+========================================================= -->
+
+<div
+    class="page-loader"
+    id="pageLoader"
+    aria-label="Loading Hustla Mindset"
+>
 
     <div class="loader-mark">
         HM
@@ -54,13 +162,19 @@
 </div>
 
 
-<!-- =====================================================
+<!-- =========================================================
      HEADER
-===================================================== -->
+========================================================= -->
 
-<header class="site-header" id="siteHeader">
+<header
+    class="site-header"
+    id="siteHeader"
+>
 
     <div class="header-inner">
+
+
+        <!-- BRAND -->
 
         <a
             href="#home"
@@ -79,12 +193,15 @@
         </a>
 
 
+        <!-- MOBILE MENU BUTTON -->
+
         <button
             class="menu-toggle"
             id="menuToggle"
             type="button"
             aria-label="Open navigation"
             aria-expanded="false"
+            aria-controls="navigation"
         >
 
             <span></span>
@@ -94,28 +211,47 @@
         </button>
 
 
+        <!-- NAVIGATION -->
+
         <nav
             class="navigation"
             id="navigation"
+            aria-label="Main navigation"
         >
 
-            <a href="#home">
+            <a
+                href="#home"
+            >
                 Home
             </a>
 
-            <a href="#movement">
+            <a
+                href="#movement"
+            >
                 The Movement
             </a>
 
-            <a href="#explore">
+            <a
+                href="#explore"
+            >
                 Explore
             </a>
 
-            <a href="#tools">
+            <a
+                href="#featured"
+            >
+                Featured
+            </a>
+
+            <a
+                href="#tools"
+            >
                 Tools
             </a>
 
-            <a href="#community">
+            <a
+                href="#community"
+            >
                 Community
             </a>
 
@@ -133,39 +269,50 @@
 </header>
 
 
-<!-- =====================================================
-     MAIN
-===================================================== -->
+<!-- =========================================================
+     MAIN CONTENT
+========================================================= -->
 
-<main>
+<main id="main-content">
 
 
-<!-- =====================================================
+<!-- =========================================================
      HERO
-===================================================== -->
+========================================================= -->
 
 <section
     class="hero"
     id="home"
+    aria-labelledby="hero-title"
 >
 
-    <div class="hero-noise"></div>
+    <div
+        class="hero-noise"
+        aria-hidden="true"
+    ></div>
+
 
     <div class="hero-inner">
 
 
+        <!-- HERO COPY -->
+
         <div class="hero-copy">
+
 
             <div class="hero-label">
 
-                <span class="label-dot"></span>
+                <span
+                    class="label-dot"
+                    aria-hidden="true"
+                ></span>
 
                 THE DIGITAL HUSTLE MOVEMENT
 
             </div>
 
 
-            <h1>
+            <h1 id="hero-title">
 
                 BUILD THE LIFE
 
@@ -194,8 +341,13 @@
                     href="#explore"
                     class="button button-primary"
                 >
+
                     Start Exploring
-                    <span>→</span>
+
+                    <span aria-hidden="true">
+                        →
+                    </span>
+
                 </a>
 
 
@@ -209,9 +361,15 @@
             </div>
 
 
-            <div class="hero-pillars">
+            <!-- HERO PILLARS -->
+
+            <div
+                class="hero-pillars"
+                aria-label="Hustla Mindset pillars"
+            >
 
                 <div>
+
                     <strong>
                         01
                     </strong>
@@ -219,10 +377,12 @@
                     <span>
                         MINDSET
                     </span>
+
                 </div>
 
 
                 <div>
+
                     <strong>
                         02
                     </strong>
@@ -230,10 +390,12 @@
                     <span>
                         SKILLS
                     </span>
+
                 </div>
 
 
                 <div>
+
                     <strong>
                         03
                     </strong>
@@ -241,10 +403,12 @@
                     <span>
                         MONEY
                     </span>
+
                 </div>
 
 
                 <div>
+
                     <strong>
                         04
                     </strong>
@@ -252,6 +416,7 @@
                     <span>
                         ACTION
                     </span>
+
                 </div>
 
             </div>
@@ -259,7 +424,12 @@
         </div>
 
 
-        <div class="hero-visual">
+        <!-- HERO VISUAL -->
+
+        <div
+            class="hero-visual"
+            aria-hidden="true"
+        >
 
             <div class="hero-circle circle-one"></div>
 
@@ -277,10 +447,13 @@
                 </span>
 
                 <strong>
+
                     YOUR
+
                     <em>
                         POTENTIAL
                     </em>
+
                 </strong>
 
                 <small>
@@ -333,7 +506,13 @@
     </div>
 
 
-    <div class="hero-scroll">
+    <!-- HERO SCROLL INDICATOR -->
+
+    <a
+        href="#movement"
+        class="hero-scroll"
+        aria-label="Scroll to explore Hustla Mindset"
+    >
 
         <span>
             SCROLL TO EXPLORE
@@ -341,18 +520,19 @@
 
         <div></div>
 
-    </div>
+    </a>
 
 </section>
 
 
-<!-- =====================================================
-     MOVEMENT
-===================================================== -->
+<!-- =========================================================
+     THE MOVEMENT
+========================================================= -->
 
 <section
     class="movement section"
     id="movement"
+    aria-labelledby="movement-title"
 >
 
     <div class="container">
@@ -364,9 +544,14 @@
                 THE MOVEMENT
             </p>
 
-            <h2>
+            <h2 id="movement-title">
+
                 THIS ISN'T JUST
-                <span>A WEBSITE.</span>
+
+                <span>
+                    A WEBSITE.
+                </span>
+
             </h2>
 
         </div>
@@ -407,16 +592,24 @@
                     href="#explore"
                     class="inline-link"
                 >
+
                     Explore the platform
-                    <span>→</span>
+
+                    <span aria-hidden="true">
+                        →
+                    </span>
+
                 </a>
 
             </div>
 
 
-            <div class="movement-stats">
+            <div
+                class="movement-stats"
+                aria-label="Hustla Mindset principles"
+            >
 
-                <div class="stat-card">
+                <article class="stat-card">
 
                     <span>
                         01
@@ -431,10 +624,10 @@
                         an advantage.
                     </p>
 
-                </div>
+                </article>
 
 
-                <div class="stat-card">
+                <article class="stat-card">
 
                     <span>
                         02
@@ -449,10 +642,10 @@
                         skills and projects.
                     </p>
 
-                </div>
+                </article>
 
 
-                <div class="stat-card">
+                <article class="stat-card">
 
                     <span>
                         03
@@ -467,7 +660,7 @@
                         instead of waiting.
                     </p>
 
-                </div>
+                </article>
 
             </div>
 
@@ -478,13 +671,14 @@
 </section>
 
 
-<!-- =====================================================
+<!-- =========================================================
      EXPLORE
-===================================================== -->
+========================================================= -->
 
 <section
     class="explore section"
     id="explore"
+    aria-labelledby="explore-title"
 >
 
     <div class="container">
@@ -498,9 +692,14 @@
                     EXPLORE
                 </p>
 
-                <h2>
+                <h2 id="explore-title">
+
                     FIND YOUR
-                    <span>EDGE.</span>
+
+                    <span>
+                        EDGE.
+                    </span>
+
                 </h2>
 
             </div>
@@ -519,10 +718,13 @@
         <div class="explore-grid">
 
 
+            <!-- MINDSET -->
+
             <a
                 href="#"
                 class="explore-card card-featured"
                 data-category="mindset"
+                aria-label="Explore mindset content"
             >
 
                 <span class="card-number">
@@ -540,23 +742,31 @@
                     </h3>
 
                     <span class="card-description">
+
                         Discipline. Confidence. Consistency.
                         Mental strength.
+
                     </span>
 
                 </div>
 
-                <span class="card-arrow">
+                <span
+                    class="card-arrow"
+                    aria-hidden="true"
+                >
                     ↗
                 </span>
 
             </a>
 
 
+            <!-- MONEY -->
+
             <a
                 href="#"
                 class="explore-card"
                 data-category="money"
+                aria-label="Explore money content"
             >
 
                 <span class="card-number">
@@ -574,23 +784,31 @@
                     </h3>
 
                     <span class="card-description">
+
                         Income ideas, financial knowledge
                         and money skills.
+
                     </span>
 
                 </div>
 
-                <span class="card-arrow">
+                <span
+                    class="card-arrow"
+                    aria-hidden="true"
+                >
                     ↗
                 </span>
 
             </a>
 
 
+            <!-- BUSINESS -->
+
             <a
                 href="#"
                 class="explore-card"
                 data-category="business"
+                aria-label="Explore business content"
             >
 
                 <span class="card-number">
@@ -608,22 +826,30 @@
                     </h3>
 
                     <span class="card-description">
+
                         Build ideas, brands and businesses.
+
                     </span>
 
                 </div>
 
-                <span class="card-arrow">
+                <span
+                    class="card-arrow"
+                    aria-hidden="true"
+                >
                     ↗
                 </span>
 
             </a>
 
 
+            <!-- AI -->
+
             <a
                 href="#"
                 class="explore-card"
                 data-category="ai"
+                aria-label="Explore AI content"
             >
 
                 <span class="card-number">
@@ -641,23 +867,31 @@
                     </h3>
 
                     <span class="card-description">
+
                         Learn how artificial intelligence
                         can increase your capabilities.
+
                     </span>
 
                 </div>
 
-                <span class="card-arrow">
+                <span
+                    class="card-arrow"
+                    aria-hidden="true"
+                >
                     ↗
                 </span>
 
             </a>
 
 
+            <!-- DIGITAL SKILLS -->
+
             <a
                 href="#"
                 class="explore-card"
                 data-category="digital"
+                aria-label="Explore digital skills content"
             >
 
                 <span class="card-number">
@@ -675,23 +909,31 @@
                     </h3>
 
                     <span class="card-description">
+
                         Coding, websites, marketing,
                         design and technology.
+
                     </span>
 
                 </div>
 
-                <span class="card-arrow">
+                <span
+                    class="card-arrow"
+                    aria-hidden="true"
+                >
                     ↗
                 </span>
 
             </a>
 
 
+            <!-- OPPORTUNITIES -->
+
             <a
                 href="#"
                 class="explore-card"
                 data-category="opportunities"
+                aria-label="Explore opportunities"
             >
 
                 <span class="card-number">
@@ -709,13 +951,18 @@
                     </h3>
 
                     <span class="card-description">
+
                         Scholarships, careers, freelancing
                         and opportunities.
+
                     </span>
 
                 </div>
 
-                <span class="card-arrow">
+                <span
+                    class="card-arrow"
+                    aria-hidden="true"
+                >
                     ↗
                 </span>
 
@@ -728,24 +975,227 @@
 </section>
 
 
-<!-- =====================================================
-     FEATURED MESSAGE
-===================================================== -->
+<!-- =========================================================
+     FEATURED HUSTLE
+========================================================= -->
 
-<section class="statement-section">
+<section
+    class="featured-hustle section"
+    id="featured"
+    aria-labelledby="featured-title"
+>
+
+    <div class="container">
+
+
+        <div class="section-heading">
+
+            <div>
+
+                <p class="section-label">
+                    FEATURED HUSTLE
+                </p>
+
+                <h2 id="featured-title">
+
+                    IDEAS WORTH
+
+                    <span>
+                        EXPLORING.
+                    </span>
+
+                </h2>
+
+            </div>
+
+
+            <p>
+
+                Discover practical ideas, skills and
+                conversations designed to move you forward.
+
+            </p>
+
+        </div>
+
+
+        <div class="featured-grid">
+
+
+            <article class="featured-card">
+
+                <div class="featured-card-top">
+
+                    <span>
+                        DIGITAL SKILLS
+                    </span>
+
+                    <span>
+                        01
+                    </span>
+
+                </div>
+
+
+                <div class="featured-card-content">
+
+                    <h3>
+                        Build Skills That Travel With You.
+                    </h3>
+
+                    <p>
+
+                        Coding, design, marketing, AI and
+                        other digital skills can become useful
+                        assets wherever you go.
+
+                    </p>
+
+                    <a
+                        href="#tools"
+                        class="inline-link"
+                    >
+
+                        Explore tools
+
+                        <span aria-hidden="true">
+                            →
+                        </span>
+
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <article class="featured-card">
+
+                <div class="featured-card-top">
+
+                    <span>
+                        OPPORTUNITIES
+                    </span>
+
+                    <span>
+                        02
+                    </span>
+
+                </div>
+
+
+                <div class="featured-card-content">
+
+                    <h3>
+                        Stop Missing What's Out There.
+                    </h3>
+
+                    <p>
+
+                        Find scholarships, careers, freelancing
+                        opportunities and other ways to create
+                        your next opportunity.
+
+                    </p>
+
+                    <a
+                        href="#explore"
+                        class="inline-link"
+                    >
+
+                        Explore opportunities
+
+                        <span aria-hidden="true">
+                            →
+                        </span>
+
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <article class="featured-card">
+
+                <div class="featured-card-top">
+
+                    <span>
+                        AI + BUSINESS
+                    </span>
+
+                    <span>
+                        03
+                    </span>
+
+                </div>
+
+
+                <div class="featured-card-content">
+
+                    <h3>
+                        Use Technology. Don't Just Watch It.
+                    </h3>
+
+                    <p>
+
+                        Learn how modern AI tools can help
+                        you research, create, automate and
+                        build faster.
+
+                    </p>
+
+                    <a
+                        href="#tools"
+                        class="inline-link"
+                    >
+
+                        Explore AI tools
+
+                        <span aria-hidden="true">
+                            →
+                        </span>
+
+                    </a>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     STATEMENT
+========================================================= -->
+
+<section
+    class="statement-section"
+    aria-label="Hustla Mindset statement"
+>
 
     <div class="container">
 
         <p>
             YOU DON'T NEED
-            <span>MORE TIME.</span>
+
+            <span>
+                MORE TIME.
+            </span>
         </p>
 
         <p>
+
             YOU NEED
+
             <strong>
                 MORE ACTION.
             </strong>
+
         </p>
 
     </div>
@@ -753,13 +1203,14 @@
 </section>
 
 
-<!-- =====================================================
+<!-- =========================================================
      TOOLS
-===================================================== -->
+========================================================= -->
 
 <section
     class="tools section"
     id="tools"
+    aria-labelledby="tools-title"
 >
 
     <div class="container">
@@ -773,9 +1224,14 @@
                     HUSTLA TOOLS
                 </p>
 
-                <h2>
+                <h2 id="tools-title">
+
                     DON'T JUST
-                    <span>CONSUME.</span>
+
+                    <span>
+                        CONSUME.
+                    </span>
+
                 </h2>
 
             </div>
@@ -794,6 +1250,8 @@
         <div class="tools-grid">
 
 
+            <!-- BUSINESS TOOL -->
+
             <article
                 class="tool-card"
                 data-tool="business"
@@ -811,25 +1269,38 @@
 
                 </div>
 
+
                 <h3>
                     Business Idea Generator
                 </h3>
 
+
                 <p>
+
                     Generate business ideas based on
                     your interests and skills.
+
                 </p>
+
 
                 <button
                     class="tool-launch"
                     type="button"
+                    aria-label="Launch Business Idea Generator"
                 >
+
                     Launch Tool
-                    <span>→</span>
+
+                    <span aria-hidden="true">
+                        →
+                    </span>
+
                 </button>
 
             </article>
 
+
+            <!-- CONTENT TOOL -->
 
             <article
                 class="tool-card"
@@ -848,25 +1319,38 @@
 
                 </div>
 
+
                 <h3>
                     Content Idea Generator
                 </h3>
 
+
                 <p>
+
                     Generate content ideas for TikTok,
                     Instagram, YouTube and more.
+
                 </p>
+
 
                 <button
                     class="tool-launch"
                     type="button"
+                    aria-label="Launch Content Idea Generator"
                 >
+
                     Launch Tool
-                    <span>→</span>
+
+                    <span aria-hidden="true">
+                        →
+                    </span>
+
                 </button>
 
             </article>
 
+
+            <!-- ROADMAP TOOL -->
 
             <article
                 class="tool-card"
@@ -885,25 +1369,38 @@
 
                 </div>
 
+
                 <h3>
                     Hustle Roadmap
                 </h3>
 
+
                 <p>
+
                     Turn an idea into a simple
                     step-by-step action plan.
+
                 </p>
+
 
                 <button
                     class="tool-launch"
                     type="button"
+                    aria-label="Launch Hustle Roadmap"
                 >
+
                     Launch Tool
-                    <span>→</span>
+
+                    <span aria-hidden="true">
+                        →
+                    </span>
+
                 </button>
 
             </article>
 
+
+            <!-- AI TOOL -->
 
             <article
                 class="tool-card"
@@ -922,21 +1419,32 @@
 
                 </div>
 
+
                 <h3>
                     AI Tool Finder
                 </h3>
 
+
                 <p>
+
                     Discover useful AI tools for
                     school, work and business.
+
                 </p>
+
 
                 <button
                     class="tool-launch"
                     type="button"
+                    aria-label="Launch AI Tool Finder"
                 >
+
                     Launch Tool
-                    <span>→</span>
+
+                    <span aria-hidden="true">
+                        →
+                    </span>
+
                 </button>
 
             </article>
@@ -948,13 +1456,14 @@
 </section>
 
 
-<!-- =====================================================
+<!-- =========================================================
      COMMUNITY
-===================================================== -->
+========================================================= -->
 
 <section
     class="community section"
     id="community"
+    aria-labelledby="community-title"
 >
 
     <div class="community-inner">
@@ -966,11 +1475,19 @@
                 JOIN THE MOVEMENT
             </p>
 
-            <h2>
+
+            <h2 id="community-title">
+
                 YOUR
-                <span>ENVIRONMENT</span>
+
+                <span>
+                    ENVIRONMENT
+                </span>
+
                 MATTERS.
+
             </h2>
+
 
             <p>
 
@@ -986,14 +1503,22 @@
                 class="button button-primary"
                 id="communityButton"
             >
+
                 Join Hustla Mindset
-                <span>→</span>
+
+                <span aria-hidden="true">
+                    →
+                </span>
+
             </a>
 
         </div>
 
 
-        <div class="community-mark">
+        <div
+            class="community-mark"
+            aria-hidden="true"
+        >
 
             <span>
                 HM
@@ -1010,11 +1535,14 @@
 </section>
 
 
-<!-- =====================================================
+<!-- =========================================================
      GOMEZ DIGITAL BRIDGE
-===================================================== -->
+========================================================= -->
 
-<section class="agency-bridge">
+<section
+    class="agency-bridge"
+    aria-labelledby="agency-title"
+>
 
     <div class="container">
 
@@ -1024,18 +1552,26 @@
                 READY TO BUILD SOMETHING REAL?
             </p>
 
-            <h2>
+
+            <h2 id="agency-title">
+
                 HUSTLA MINDSET
+
                 <span>
                     BUILDS PEOPLE.
                 </span>
+
             </h2>
 
+
             <p>
+
                 GOMEZ DIGITAL
+
                 <span>
                     BUILDS DIGITAL EXPERIENCES.
                 </span>
+
             </p>
 
 
@@ -1045,8 +1581,13 @@
                 rel="noopener noreferrer"
                 class="agency-link"
             >
+
                 Visit Gomez Digital
-                <span>↗</span>
+
+                <span aria-hidden="true">
+                    ↗
+                </span>
+
             </a>
 
         </div>
@@ -1056,9 +1597,9 @@
 </section>
 
 
-<!-- =====================================================
+<!-- =========================================================
      FOOTER
-===================================================== -->
+========================================================= -->
 
 <footer class="site-footer">
 
@@ -1068,11 +1609,14 @@
         <div class="footer-main">
 
 
+            <!-- FOOTER BRAND -->
+
             <div class="footer-brand">
 
                 <a
                     href="#home"
                     class="brand"
+                    aria-label="Back to Hustla Mindset home"
                 >
 
                     <span class="brand-main">
@@ -1093,23 +1637,34 @@
             </div>
 
 
+            <!-- EXPLORE -->
+
             <div class="footer-column">
 
                 <h4>
                     EXPLORE
                 </h4>
 
+
                 <a href="#movement">
                     The Movement
                 </a>
+
 
                 <a href="#explore">
                     Explore
                 </a>
 
+
+                <a href="#featured">
+                    Featured
+                </a>
+
+
                 <a href="#tools">
                     Tools
                 </a>
+
 
                 <a href="#community">
                     Community
@@ -1118,23 +1673,54 @@
             </div>
 
 
+            <!-- CONNECT -->
+
             <div class="footer-column">
 
                 <h4>
                     CONNECT
                 </h4>
 
+
                 <a href="#">
                     TikTok
                 </a>
+
 
                 <a href="#">
                     Instagram
                 </a>
 
-                <a href="#">
+
+                <a href="#community">
                     Community
                 </a>
+
+            </div>
+
+
+            <!-- PHILOSOPHY -->
+
+            <div class="footer-column footer-philosophy">
+
+                <h4>
+                    PHILOSOPHY
+                </h4>
+
+
+                <p>
+                    Learn something.
+                </p>
+
+
+                <p>
+                    Build something.
+                </p>
+
+
+                <p>
+                    Execute.
+                </p>
 
             </div>
 
@@ -1144,9 +1730,13 @@
         <div class="footer-bottom">
 
             <span>
-                © <span id="year"></span>
+
+                ©
+                <span id="year"></span>
                 Hustla Mindset
+
             </span>
+
 
             <span>
                 Built for action.
@@ -1162,9 +1752,9 @@
 </main>
 
 
-<!-- =====================================================
+<!-- =========================================================
      TOOL MODAL
-===================================================== -->
+========================================================= -->
 
 <div
     class="tool-modal"
@@ -1172,14 +1762,20 @@
     aria-hidden="true"
 >
 
-    <div class="modal-overlay"></div>
+    <div
+        class="modal-overlay"
+        id="modalOverlay"
+    ></div>
 
 
     <div
         class="modal-box"
         role="dialog"
         aria-modal="true"
+        aria-labelledby="modalTitle"
+        aria-describedby="modalDescription"
     >
+
 
         <button
             class="modal-close"
@@ -1206,23 +1802,25 @@
         </p>
 
 
-        <div id="modalContent">
-
-        </div>
+        <div
+            id="modalContent"
+            class="modal-content"
+        ></div>
 
     </div>
 
 </div>
 
 
-<!-- =====================================================
+<!-- =========================================================
      NOTIFICATION
-===================================================== -->
+========================================================= -->
 
 <div
     class="notification"
     id="notification"
     role="status"
+    aria-live="polite"
 >
 
     <span id="notificationText">
@@ -1232,11 +1830,15 @@
 </div>
 
 
-<!-- =====================================================
+<!-- =========================================================
      JAVASCRIPT
-===================================================== -->
+========================================================= -->
 
-<script src="script.js?v=2"></script>
+<script
+    src="script.js?v=3"
+    defer
+></script>
+
 
 </body>
 
