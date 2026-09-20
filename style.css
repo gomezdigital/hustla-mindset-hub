@@ -2821,3 +2821,966 @@ button {
     }
 
    }
+/* =========================================================
+   HUSTLA MINDSET V5
+   RESOURCE HUB + TIKTOK UPGRADE
+========================================================= */
+
+
+/* =========================================================
+   RESOURCE MODAL
+========================================================= */
+
+.resource-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9998;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 24px;
+
+    opacity: 0;
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition:
+        opacity 280ms cubic-bezier(.2,.8,.2,1),
+        visibility 280ms;
+}
+
+
+.resource-modal.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+
+/* =========================================================
+   RESOURCE MODAL OVERLAY
+========================================================= */
+
+.resource-modal-overlay {
+    position: absolute;
+    inset: 0;
+
+    background:
+        rgba(0, 0, 0, .78);
+
+    backdrop-filter:
+        blur(12px);
+
+    -webkit-backdrop-filter:
+        blur(12px);
+}
+
+
+/* =========================================================
+   RESOURCE MODAL BOX
+========================================================= */
+
+.resource-modal-box {
+    position: relative;
+
+    width: min(900px, 100%);
+
+    max-height: min(820px, 90vh);
+
+    overflow-y: auto;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(23, 23, 23, .98),
+            rgba(9, 9, 9, .99)
+        );
+
+    border:
+        1px solid var(--border-strong);
+
+    border-radius:
+        var(--radius-lg);
+
+    box-shadow:
+        0 35px 100px rgba(0, 0, 0, .65),
+        0 0 80px rgba(183, 255, 50, .06);
+
+    padding:
+        42px;
+
+    transform:
+        translateY(24px)
+        scale(.97);
+
+    transition:
+        transform 350ms cubic-bezier(.2,.8,.2,1);
+}
+
+
+.resource-modal.active
+.resource-modal-box {
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+
+/* =========================================================
+   MODAL TOP ACCENT
+========================================================= */
+
+.resource-modal-box::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 3px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--lime),
+            var(--gold),
+            transparent
+        );
+}
+
+
+/* =========================================================
+   RESOURCE MODAL CLOSE
+========================================================= */
+
+.resource-modal-close {
+    position: absolute;
+
+    top: 18px;
+    right: 18px;
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        50%;
+
+    background:
+        rgba(255,255,255,.04);
+
+    color:
+        var(--white);
+
+    font-size:
+        28px;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        transform var(--transition),
+        background var(--transition),
+        border-color var(--transition),
+        color var(--transition);
+}
+
+
+.resource-modal-close:hover {
+    transform:
+        rotate(90deg);
+
+    background:
+        var(--lime);
+
+    border-color:
+        var(--lime);
+
+    color:
+        var(--black);
+}
+
+
+.resource-modal-close:focus-visible {
+    outline:
+        2px solid var(--lime);
+
+    outline-offset:
+        3px;
+}
+
+
+/* =========================================================
+   RESOURCE MODAL HEADER
+========================================================= */
+
+.resource-modal-header {
+    max-width:
+        700px;
+
+    padding-right:
+        55px;
+
+    margin-bottom:
+        30px;
+}
+
+
+.resource-modal-label {
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    gap:
+        8px;
+
+    margin-bottom:
+        13px;
+
+    color:
+        var(--lime);
+
+    font-size:
+        11px;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        .18em;
+}
+
+
+.resource-modal-label::before {
+    content: "";
+
+    width:
+        22px;
+
+    height:
+        1px;
+
+    background:
+        var(--lime);
+}
+
+
+.resource-modal-header h2 {
+    margin:
+        0 0 14px;
+
+    color:
+        var(--white);
+
+    font-size:
+        clamp(28px, 4vw, 48px);
+
+    line-height:
+        1.05;
+
+    letter-spacing:
+        -.035em;
+}
+
+
+.resource-modal-header p {
+    margin:
+        0;
+
+    color:
+        var(--muted-light);
+
+    font-size:
+        15px;
+
+    line-height:
+        1.75;
+}
+
+
+/* =========================================================
+   RESOURCE GRID
+========================================================= */
+
+.resource-modal-content {
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap:
+        14px;
+}
+
+
+/* =========================================================
+   RESOURCE CARD
+========================================================= */
+
+.resource-card {
+    position:
+        relative;
+
+    padding:
+        23px;
+
+    min-height:
+        205px;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.055),
+            rgba(255,255,255,.018)
+        );
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        var(--radius-md);
+
+    overflow:
+        hidden;
+
+    transition:
+        transform var(--transition),
+        border-color var(--transition),
+        background var(--transition),
+        box-shadow var(--transition);
+}
+
+
+.resource-card::before {
+    content: "";
+
+    position:
+        absolute;
+
+    top:
+        -70px;
+
+    right:
+        -70px;
+
+    width:
+        140px;
+
+    height:
+        140px;
+
+    border-radius:
+        50%;
+
+    background:
+        rgba(183,255,50,.07);
+
+    filter:
+        blur(10px);
+
+    transition:
+        transform 450ms ease;
+}
+
+
+.resource-card:hover {
+    transform:
+        translateY(-6px);
+
+    border-color:
+        rgba(183,255,50,.35);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(183,255,50,.07),
+            rgba(255,255,255,.025)
+        );
+
+    box-shadow:
+        0 18px 45px rgba(0,0,0,.3);
+}
+
+
+.resource-card:hover::before {
+    transform:
+        scale(1.4);
+}
+
+
+.resource-card-tag {
+    position:
+        relative;
+
+    display:
+        inline-flex;
+
+    align-self:
+        flex-start;
+
+    margin-bottom:
+        18px;
+
+    padding:
+        6px 9px;
+
+    border:
+        1px solid rgba(183,255,50,.18);
+
+    border-radius:
+        999px;
+
+    color:
+        var(--lime);
+
+    background:
+        rgba(183,255,50,.05);
+
+    font-size:
+        9px;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        .14em;
+}
+
+
+.resource-card h3 {
+    position:
+        relative;
+
+    margin:
+        0 0 11px;
+
+    color:
+        var(--white);
+
+    font-size:
+        19px;
+
+    line-height:
+        1.2;
+
+    letter-spacing:
+        -.02em;
+}
+
+
+.resource-card p {
+    position:
+        relative;
+
+    margin:
+        0;
+
+    color:
+        var(--muted-light);
+
+    font-size:
+        13px;
+
+    line-height:
+        1.7;
+}
+
+
+/* =========================================================
+   RESOURCE MODAL FOOTER
+========================================================= */
+
+.resource-modal-footer {
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        20px;
+
+    margin-top:
+        28px;
+
+    padding-top:
+        22px;
+
+    border-top:
+        1px solid var(--border);
+
+    color:
+        var(--muted);
+
+    font-size:
+        9px;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        .16em;
+}
+
+
+.resource-tiktok-link {
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    padding:
+        11px 16px;
+
+    border:
+        1px solid rgba(183,255,50,.3);
+
+    border-radius:
+        999px;
+
+    background:
+        rgba(183,255,50,.06);
+
+    color:
+        var(--lime);
+
+    font-size:
+        10px;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        .08em;
+
+    text-decoration:
+        none;
+
+    transition:
+        transform var(--transition),
+        background var(--transition),
+        border-color var(--transition),
+        color var(--transition);
+}
+
+
+.resource-tiktok-link:hover {
+    transform:
+        translateY(-2px);
+
+    background:
+        var(--lime);
+
+    border-color:
+        var(--lime);
+
+    color:
+        var(--black);
+}
+
+
+.resource-tiktok-link:focus-visible {
+    outline:
+        2px solid var(--white);
+
+    outline-offset:
+        3px;
+}
+
+
+/* =========================================================
+   BODY LOCK
+========================================================= */
+
+body.resource-modal-open {
+    overflow:
+        hidden;
+}
+
+
+/* =========================================================
+   HUSTLA TIKTOK CTA
+========================================================= */
+
+.hustla-tiktok-cta {
+    position:
+        relative;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        20px;
+
+    margin-top:
+        28px;
+
+    padding:
+        20px 22px;
+
+    border:
+        1px solid rgba(183,255,50,.2);
+
+    border-radius:
+        var(--radius-md);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(183,255,50,.08),
+            rgba(216,180,91,.04)
+        );
+
+    color:
+        var(--white);
+
+    text-decoration:
+        none;
+
+    overflow:
+        hidden;
+
+    transition:
+        transform var(--transition),
+        border-color var(--transition),
+        background var(--transition),
+        box-shadow var(--transition);
+}
+
+
+.hustla-tiktok-cta::before {
+    content: "";
+
+    position:
+        absolute;
+
+    inset:
+        0;
+
+    background:
+        linear-gradient(
+            100deg,
+            transparent 20%,
+            rgba(255,255,255,.08) 50%,
+            transparent 80%
+        );
+
+    transform:
+        translateX(-120%);
+
+    transition:
+        transform 700ms ease;
+}
+
+
+.hustla-tiktok-cta:hover {
+    transform:
+        translateY(-4px);
+
+    border-color:
+        rgba(183,255,50,.45);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(183,255,50,.13),
+            rgba(216,180,91,.07)
+        );
+
+    box-shadow:
+        0 18px 50px rgba(0,0,0,.3);
+}
+
+
+.hustla-tiktok-cta:hover::before {
+    transform:
+        translateX(120%);
+}
+
+
+.tiktok-cta-copy {
+    position:
+        relative;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        5px;
+}
+
+
+.tiktok-cta-copy strong {
+    font-size:
+        13px;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        .05em;
+}
+
+
+.tiktok-cta-copy small {
+    color:
+        var(--muted-light);
+
+    font-size:
+        11px;
+}
+
+
+.tiktok-cta-arrow {
+    position:
+        relative;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    width:
+        42px;
+
+    height:
+        42px;
+
+    flex:
+        0 0 42px;
+
+    border:
+        1px solid rgba(183,255,50,.25);
+
+    border-radius:
+        50%;
+
+    color:
+        var(--lime);
+
+    font-size:
+        18px;
+
+    transition:
+        transform var(--transition),
+        background var(--transition),
+        color var(--transition);
+}
+
+
+.hustla-tiktok-cta:hover
+.tiktok-cta-arrow {
+    transform:
+        translate(3px, -3px);
+
+    background:
+        var(--lime);
+
+    color:
+        var(--black);
+}
+
+
+/* =========================================================
+   RESOURCE CARD KEYBOARD ACCESS
+========================================================= */
+
+.explore-card:focus-visible {
+    outline:
+        2px solid var(--lime);
+
+    outline-offset:
+        4px;
+}
+
+
+/* =========================================================
+   MOBILE RESOURCE EXPERIENCE
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .resource-modal-content {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .resource-modal {
+        align-items:
+            flex-end;
+
+        padding:
+            0;
+    }
+
+
+    .resource-modal-box {
+        width:
+            100%;
+
+        max-height:
+            92vh;
+
+        border-radius:
+            24px 24px 0 0;
+
+        padding:
+            34px 18px 22px;
+    }
+
+
+    .resource-modal-header {
+        padding-right:
+            48px;
+
+        margin-bottom:
+            22px;
+    }
+
+
+    .resource-modal-header h2 {
+        font-size:
+            30px;
+    }
+
+
+    .resource-modal-header p {
+        font-size:
+            13px;
+
+        line-height:
+            1.65;
+    }
+
+
+    .resource-modal-content {
+        grid-template-columns:
+            1fr;
+
+        gap:
+            10px;
+    }
+
+
+    .resource-card {
+        min-height:
+            auto;
+
+        padding:
+            19px;
+    }
+
+
+    .resource-card h3 {
+        font-size:
+            17px;
+    }
+
+
+    .resource-card p {
+        font-size:
+            12px;
+    }
+
+
+    .resource-modal-footer {
+        align-items:
+            stretch;
+
+        flex-direction:
+            column;
+
+        gap:
+            14px;
+    }
+
+
+    .resource-tiktok-link {
+        width:
+            100%;
+
+        box-sizing:
+            border-box;
+    }
+
+
+    .hustla-tiktok-cta {
+        padding:
+            17px;
+    }
+
+
+    .tiktok-cta-copy strong {
+        font-size:
+            11px;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .resource-modal,
+    .resource-modal-box,
+    .resource-card,
+    .resource-card::before,
+    .resource-modal-close,
+    .resource-tiktok-link,
+    .hustla-tiktok-cta,
+    .hustla-tiktok-cta::before,
+    .tiktok-cta-arrow {
+        transition:
+            none !important;
+    }
+
+   }
