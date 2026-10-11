@@ -174,7 +174,7 @@ button {
     background: var(--lime);
 
     box-shadow:
-        0 0 15px rgba(183,255,50,.7);
+        0 0 15px rgba(255,138,0,.7);
 
     pointer-events: none;
 }
@@ -269,7 +269,7 @@ button {
     font-weight: 700;
 
     box-shadow:
-        0 0 40px rgba(183,255,50,.12);
+        0 0 40px rgba(255,138,0,.12);
 
     animation:
         loaderPulse 1.5s ease-in-out infinite;
@@ -486,7 +486,7 @@ button {
         translateY(-2px);
 
     box-shadow:
-        0 8px 25px rgba(183,255,50,.2);
+        0 8px 25px rgba(255,138,0,.2);
 }
 
 
@@ -596,7 +596,7 @@ button {
     background:
         radial-gradient(
             circle at 75% 50%,
-            rgba(183,255,50,.07),
+            rgba(255,138,0,.07),
             transparent 28%
         ),
         radial-gradient(
@@ -723,7 +723,7 @@ button {
     background: var(--lime);
 
     box-shadow:
-        0 0 16px rgba(183,255,50,.8);
+        0 0 16px rgba(255,138,0,.8);
 
     animation:
         labelPulse 2s ease-in-out infinite;
@@ -834,14 +834,14 @@ button {
     background: var(--lime);
 
     box-shadow:
-        0 12px 30px rgba(183,255,50,.08);
+        0 12px 30px rgba(255,138,0,.08);
 }
 
 .button-primary:hover {
     background: #ffad42;
 
     box-shadow:
-        0 16px 35px rgba(183,255,50,.16);
+        0 16px 35px rgba(255,138,0,.16);
 }
 
 .button-secondary {
@@ -856,7 +856,7 @@ button {
 
 .button-secondary:hover {
     border-color:
-        rgba(183,255,50,.4);
+        rgba(255,138,0,.4);
 }
 
 
@@ -930,7 +930,7 @@ button {
     position: absolute;
 
     border:
-        1px solid rgba(183,255,50,.22);
+        1px solid rgba(255,138,0,.22);
 
     border-radius: 50%;
 
@@ -980,7 +980,7 @@ button {
         linear-gradient(
             90deg,
             transparent,
-            rgba(183,255,50,.5),
+            rgba(255,138,0,.5),
             transparent
         );
 
@@ -1030,7 +1030,7 @@ button {
 
     box-shadow:
         0 30px 80px rgba(0,0,0,.5),
-        inset 0 0 40px rgba(183,255,50,.035);
+        inset 0 0 40px rgba(255,138,0,.035);
 }
 
 .hero-statement span {
@@ -1371,10 +1371,10 @@ button {
         translateX(7px);
 
     border-color:
-        rgba(183,255,50,.28);
+        rgba(255,138,0,.28);
 
     background:
-        rgba(183,255,50,.035);
+        rgba(255,138,0,.035);
 }
 
 .stat-card > span {
@@ -1501,7 +1501,7 @@ button {
     background:
         radial-gradient(
             circle,
-            rgba(183,255,50,.09),
+            rgba(255,138,0,.09),
             transparent 65%
         );
 
@@ -1514,7 +1514,7 @@ button {
         translateY(-7px);
 
     border-color:
-        rgba(183,255,50,.3);
+        rgba(255,138,0,.3);
 
     background:
         var(--black-card-2);
@@ -1534,7 +1534,7 @@ button {
     background:
         linear-gradient(
             145deg,
-            rgba(183,255,50,.07),
+            rgba(255,138,0,.07),
             var(--black-card) 50%
         );
 }
@@ -1666,7 +1666,7 @@ button {
         translateY(-6px);
 
     border-color:
-        rgba(183,255,50,.25);
+        rgba(255,138,0,.25);
 }
 
 .featured-card-top {
@@ -1752,7 +1752,7 @@ button {
     background:
         radial-gradient(
             circle at 50% 50%,
-            rgba(183,255,50,.075),
+            rgba(255,138,0,.075),
             transparent 35%
         ),
         var(--black-soft);
@@ -1869,7 +1869,7 @@ button {
         translateY(-6px);
 
     border-color:
-        rgba(183,255,50,.3);
+        rgba(255,138,0,.3);
 
     background:
         var(--black-card-2);
@@ -1962,7 +1962,7 @@ button {
     background:
         radial-gradient(
             circle at 75% 50%,
-            rgba(183,255,50,.07),
+            rgba(255,138,0,.07),
             transparent 35%
         ),
         var(--black-soft);
@@ -2002,7 +2002,7 @@ button {
     background:
         linear-gradient(
             135deg,
-            rgba(183,255,50,.045),
+            rgba(255,138,0,.045),
             rgba(255,255,255,.015)
         );
 }
@@ -2043,19 +2043,19 @@ button {
     flex-direction: column;
 
     border:
-        1px solid rgba(183,255,50,.22);
+        1px solid rgba(255,138,0,.22);
 
     border-radius: 50%;
 
     background:
         radial-gradient(
             circle,
-            rgba(183,255,50,.07),
+            rgba(255,138,0,.07),
             transparent 65%
         );
 
     box-shadow:
-        0 0 100px rgba(183,255,50,.05);
+        0 0 100px rgba(255,138,0,.05);
 }
 
 .community-mark span {
@@ -2456,7 +2456,7 @@ button {
         var(--lime);
 
     box-shadow:
-        0 0 0 3px rgba(183,255,50,.08);
+        0 0 0 3px rgba(255,138,0,.08);
 }
 
 .tool-form select {
@@ -2499,12 +2499,12 @@ button {
     padding: 22px;
 
     border:
-        1px solid rgba(183,255,50,.22);
+        1px solid rgba(255,138,0,.22);
 
     border-radius: 12px;
 
     background:
-        rgba(183,255,50,.035);
+        rgba(255,138,0,.035);
 
     animation:
         resultIn 350ms ease both;
@@ -2793,7 +2793,7 @@ button {
 
     box-shadow:
         0 35px 100px rgba(0,0,0,.65),
-        0 0 80px rgba(183,255,50,.06);
+        0 0 80px rgba(255,138,0,.06);
 
     padding:
         42px;
@@ -3031,7 +3031,7 @@ button {
     border-radius: 50%;
 
     background:
-        rgba(183,255,50,.07);
+        rgba(255,138,0,.07);
 
     filter:
         blur(10px);
@@ -3045,12 +3045,12 @@ button {
         translateY(-6px);
 
     border-color:
-        rgba(183,255,50,.35);
+        rgba(255,138,0,.35);
 
     background:
         linear-gradient(
             145deg,
-            rgba(183,255,50,.07),
+            rgba(255,138,0,.07),
             rgba(255,255,255,.025)
         );
 
@@ -3076,7 +3076,7 @@ button {
         6px 9px;
 
     border:
-        1px solid rgba(183,255,50,.18);
+        1px solid rgba(255,138,0,.18);
 
     border-radius: 999px;
 
@@ -3084,7 +3084,7 @@ button {
         var(--lime);
 
     background:
-        rgba(183,255,50,.05);
+        rgba(255,138,0,.05);
 
     font-size: 9px;
 
@@ -3163,12 +3163,12 @@ button {
         11px 16px;
 
     border:
-        1px solid rgba(183,255,50,.3);
+        1px solid rgba(255,138,0,.3);
 
     border-radius: 999px;
 
     background:
-        rgba(183,255,50,.06);
+        rgba(255,138,0,.06);
 
     color:
         var(--lime);
@@ -3232,7 +3232,7 @@ button {
         20px 22px;
 
     border:
-        1px solid rgba(183,255,50,.2);
+        1px solid rgba(255,138,0,.2);
 
     border-radius:
         var(--radius-md);
@@ -3240,7 +3240,7 @@ button {
     background:
         linear-gradient(
             135deg,
-            rgba(183,255,50,.08),
+            rgba(255,138,0,.08),
             rgba(216,180,91,.04)
         );
 
@@ -3285,12 +3285,12 @@ button {
         translateY(-4px);
 
     border-color:
-        rgba(183,255,50,.45);
+        rgba(255,138,0,.45);
 
     background:
         linear-gradient(
             135deg,
-            rgba(183,255,50,.13),
+            rgba(255,138,0,.13),
             rgba(216,180,91,.07)
         );
 
@@ -3343,7 +3343,7 @@ button {
         0 0 42px;
 
     border:
-        1px solid rgba(183,255,50,.25);
+        1px solid rgba(255,138,0,.25);
 
     border-radius: 50%;
 
@@ -3951,3 +3951,197 @@ button {
 /* =========================================================
    END — HUSTLA MINDSET V5
 ========================================================= */
+
+
+/* =========================================================
+   46. BRAND POLISH — HUSTLA MINDSET
+   Warm orange identity, refined surfaces, clearer hierarchy.
+   Existing sections and interactions remain intact.
+========================================================= */
+
+:root {
+    --lime: #ff8a00;
+    --lime-dark: #d96d00;
+    --accent-soft: rgba(255, 138, 0, .12);
+    --accent-line: rgba(255, 138, 0, .28);
+    --surface-glass: rgba(18, 18, 18, .82);
+}
+
+/* Consistent orange lighting instead of mixed green/orange accents. */
+.scroll-progress {
+    box-shadow: 0 0 16px rgba(255, 138, 0, .55);
+}
+
+.loader-mark {
+    box-shadow: 0 0 42px rgba(255, 138, 0, .15);
+}
+
+.hero {
+    background:
+        radial-gradient(circle at 78% 46%, rgba(255, 138, 0, .105), transparent 31%),
+        radial-gradient(circle at 17% 17%, rgba(216, 180, 91, .045), transparent 30%),
+        var(--black);
+}
+
+.hero-grid {
+    opacity: .12;
+    background-size: 76px 76px;
+}
+
+.hero-label {
+    padding: 9px 12px;
+    border: 1px solid rgba(255, 138, 0, .22);
+    border-radius: 999px;
+    background: rgba(255, 138, 0, .045);
+}
+
+.hero-description {
+    max-width: 560px;
+    color: #c8c8c2;
+}
+
+.button-primary {
+    box-shadow: 0 10px 28px rgba(255, 138, 0, .13);
+}
+
+.button-primary:hover {
+    box-shadow: 0 15px 34px rgba(255, 138, 0, .22);
+}
+
+.button-secondary:hover {
+    border-color: rgba(255, 138, 0, .5);
+    background: rgba(255, 138, 0, .045);
+}
+
+.navigation .nav-cta:hover {
+    box-shadow: 0 8px 25px rgba(255, 138, 0, .24);
+}
+
+/* More deliberate section rhythm and editorial heading treatment. */
+.section-intro h2,
+.section-heading h2,
+.community h2,
+.agency-content h2 {
+    font-family: "Space Grotesk", sans-serif;
+    letter-spacing: -.055em;
+    line-height: .98;
+}
+
+.section-heading {
+    align-items: end;
+}
+
+.section-heading > p {
+    max-width: 420px;
+    color: var(--muted-light);
+    line-height: 1.8;
+}
+
+.section-label {
+    letter-spacing: .2em;
+}
+
+/* Refined card surfaces: subtle borders, depth, and restrained hover motion. */
+.stat-card,
+.explore-card,
+.featured-card,
+.tool-card,
+.daily-main-card,
+.daily-mini-card,
+.resource-card {
+    border-color: rgba(255, 255, 255, .095);
+    box-shadow: 0 16px 42px rgba(0, 0, 0, .16);
+    transition:
+        transform var(--transition),
+        border-color var(--transition),
+        background var(--transition),
+        box-shadow var(--transition);
+}
+
+.stat-card:hover,
+.explore-card:hover,
+.featured-card:hover,
+.tool-card:hover,
+.daily-mini-card:hover,
+.resource-card:hover {
+    border-color: rgba(255, 138, 0, .32);
+    box-shadow: 0 22px 48px rgba(0, 0, 0, .26);
+}
+
+.explore-card::before,
+.featured-card::before,
+.tool-card::before,
+.resource-card::before {
+    background: linear-gradient(135deg, rgba(255, 138, 0, .09), transparent 62%);
+}
+
+.card-number,
+.daily-mini-number,
+.tool-number {
+    color: var(--lime);
+}
+
+.inline-link {
+    text-underline-offset: 5px;
+}
+
+.inline-link:hover {
+    color: #ffad42;
+}
+
+/* Make input and modal controls feel consistent with the brand. */
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+button:focus-visible,
+a:focus-visible {
+    outline: 2px solid var(--lime);
+    outline-offset: 4px;
+}
+
+.modal-box,
+.resource-modal-box {
+    border-color: rgba(255, 138, 0, .2);
+    box-shadow: 0 30px 100px rgba(0, 0, 0, .58);
+}
+
+.tool-form button,
+.resource-tiktok-link {
+    box-shadow: 0 8px 22px rgba(255, 138, 0, .12);
+}
+
+/* Improve the brand mark's clarity on compact screens. */
+.brand {
+    gap: 8px;
+}
+
+.brand-main {
+    letter-spacing: -.055em;
+}
+
+.brand-sub {
+    letter-spacing: .19em;
+}
+
+/* Keep hover effects subtle and prevent motion for reduced-motion users. */
+@media (hover: hover) and (pointer: fine) {
+    .stat-card:hover,
+    .daily-main-card:hover {
+        transform: translateY(-3px);
+    }
+}
+
+@media (max-width: 650px) {
+    .hero-label {
+        font-size: 9px;
+        letter-spacing: .13em;
+    }
+
+    .section-heading > p {
+        font-size: 14px;
+    }
+
+    .hero-actions .button {
+        min-height: 52px;
+    }
+}
