@@ -19,8 +19,8 @@
     --white: #f5f5ef;
     --white-soft: #d9d9d1;
 
-    --lime: #b7ff32;
-    --lime-dark: #8fd000;
+    --lime: #ff8a00;
+    --lime-dark: #d96d00;
 
     --gold: #d8b45b;
 
@@ -838,7 +838,7 @@ button {
 }
 
 .button-primary:hover {
-    background: #c5ff5c;
+    background: #ffad42;
 
     box-shadow:
         0 16px 35px rgba(183,255,50,.16);
@@ -1335,7 +1335,7 @@ button {
 .inline-link:hover {
     gap: 16px;
 
-    color: #ceff75;
+    color: #ffb85c;
 }
 
 .movement-stats {
@@ -2487,7 +2487,7 @@ button {
 
 .tool-form button:hover {
     background:
-        #c9ff6c;
+        #ffb04a;
 
     transform:
         translateY(-2px);
