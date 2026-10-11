@@ -4145,3 +4145,32 @@ a:focus-visible {
         min-height: 52px;
     }
 }
+
+
+/* =========================================================
+   V6 — DAILY HUSTLE INTERACTION STATES
+========================================================= */
+.daily-complete {
+    transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
+}
+.daily-complete:hover {
+    transform: translateY(-2px);
+}
+.daily-complete.is-complete {
+    background: #f5f5ef;
+    color: #111;
+    box-shadow: 0 0 0 1px rgba(255,255,255,.18), 0 8px 28px rgba(255,138,0,.14);
+}
+.daily-progress-bar {
+    transition: width 360ms cubic-bezier(.2,.8,.2,1);
+}
+.daily-complete:focus-visible {
+    outline: 2px solid var(--white);
+    outline-offset: 4px;
+}
+@media (prefers-reduced-motion: reduce) {
+    .daily-complete,
+    .daily-progress-bar {
+        transition: none;
+    }
+}
