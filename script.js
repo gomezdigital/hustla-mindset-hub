@@ -58,6 +58,128 @@
         }
 
 
+
+        /* =================================================
+           V6 DAILY HUSTLE — DAILY MISSION + SAVED PROGRESS
+        ================================================= */
+
+        (function initDailyHustle() {
+            var dailyComplete = document.getElementById("dailyComplete");
+            var dailyDate = document.getElementById("dailyDate");
+            var dailyCategory = document.getElementById("dailyCategory");
+            var dailyTitle = document.getElementById("dailyTitle");
+            var dailyDescription = document.getElementById("dailyDescription");
+            var dailyProgressText = document.getElementById("dailyProgressText");
+            var dailyProgressBar = document.getElementById("dailyProgressBar");
+            var mindsetMove = document.getElementById("mindsetMove");
+            var moneyMove = document.getElementById("moneyMove");
+            var aiMove = document.getElementById("aiMove");
+
+            if (!dailyComplete || !dailyTitle) return;
+
+            var missions = [
+                { category: "BUILD", title: "Make One Thing Real.", description: "Choose one idea you've been thinking about and take one concrete step toward building it." },
+                { category: "LEARN", title: "Learn Something Useful.", description: "Spend 20 focused minutes learning one practical skill. Write down one thing you can apply today." },
+                { category: "CREATE", title: "Publish Your First Draft.", description: "Create a rough version of something useful: a post, design, offer, page, or small project. Progress beats perfection." },
+                { category: "MONEY", title: "Find One Problem to Solve.", description: "Identify a problem people around you face and write one simple way you could help solve it." },
+                { category: "AI", title: "Use AI With Purpose.", description: "Use an AI tool to improve one real task, then check the result and make it your own." },
+                { category: "NETWORK", title: "Start One Useful Conversation.", description: "Reach out to someone whose work you respect. Ask one thoughtful question or offer something helpful." },
+                { category: "FOCUS", title: "Finish a Small Task.", description: "Choose one unfinished task, remove distractions, and work on it for 25 minutes without switching." },
+                { category: "SKILLS", title: "Build Proof of Your Skill.", description: "Make a tiny example of what you can do. A sample project can speak louder than a claim on a profile." },
+                { category: "OPPORTUNITY", title: "Look for One Opportunity.", description: "Find one realistic job, client, scholarship, competition, or learning opportunity and note its requirements." },
+                { category: "REVIEW", title: "Measure Your Progress.", description: "Review what you tried recently. Keep what worked, learn from what did not, and choose your next step." }
+            ];
+
+            var moves = {
+                mindset: [
+                    "Write down one excuse you keep repeating, then one action that challenges it.",
+                    "Replace one negative assumption with a question you can test.",
+                    "Spend five minutes planning the next useful step instead of waiting for motivation.",
+                    "Write one thing you learned from a recent mistake."
+                ],
+                money: [
+                    "Identify one skill someone would pay you for and one way to prove it.",
+                    "Find one real problem people pay to solve in your community or online.",
+                    "Write a simple offer that explains who you help and what result you provide.",
+                    "Review one expense or time-waster you can reduce this week."
+                ],
+                ai: [
+                    "Use an AI tool to improve one task today, then fact-check its output.",
+                    "Ask AI to explain a difficult concept, then summarize it in your own words.",
+                    "Use AI to brainstorm three solutions to a real problem you understand.",
+                    "Automate or simplify one repetitive task with a free digital tool."
+                ]
+            };
+
+            function localDateKey(date) {
+                return date.getFullYear() + "-" +
+                    String(date.getMonth() + 1).padStart(2, "0") + "-" +
+                    String(date.getDate()).padStart(2, "0");
+            }
+
+            function safeRead(key) {
+                try { return window.localStorage.getItem(key); }
+                catch (error) { return null; }
+            }
+
+            function safeWrite(key, value) {
+                try { window.localStorage.setItem(key, value); return true; }
+                catch (error) { return false; }
+            }
+
+            var now = new Date();
+            var dateKey = localDateKey(now);
+            var dayNumber = Math.floor(new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime() / 86400000);
+            var mission = missions[((dayNumber % missions.length) + missions.length) % missions.length];
+
+            if (dailyDate) {
+                dailyDate.textContent = now.toLocaleDateString(undefined, { weekday: "short", month: "short", day: "numeric" }).toUpperCase();
+            }
+            dailyCategory.textContent = mission.category;
+            dailyTitle.textContent = mission.title;
+            dailyDescription.textContent = mission.description;
+
+            if (mindsetMove) mindsetMove.textContent = moves.mindset[dayNumber % moves.mindset.length];
+            if (moneyMove) moneyMove.textContent = moves.money[dayNumber % moves.money.length];
+            if (aiMove) aiMove.textContent = moves.ai[dayNumber % moves.ai.length];
+
+            var completed = safeRead("hm-daily-complete-" + dateKey) === "yes";
+
+            function renderProgress() {
+                dailyComplete.classList.toggle("is-complete", completed);
+                dailyComplete.setAttribute("aria-pressed", completed ? "true" : "false");
+                dailyComplete.innerHTML = completed
+                    ? 'Mission Completed <span aria-hidden="true">✓</span>'
+                    : 'Complete Today\'s Mission <span aria-hidden="true">→</span>';
+                if (dailyProgressText) dailyProgressText.textContent = completed ? "1 / 1" : "0 / 1";
+                if (dailyProgressBar) dailyProgressBar.style.width = completed ? "100%" : "0%";
+                if (completed) {
+                    dailyComplete.setAttribute("aria-label", "Today's mission completed. Activate to undo.");
+                } else {
+                    dailyComplete.setAttribute("aria-label", "Mark today's mission complete");
+                }
+            }
+
+            dailyComplete.addEventListener("click", function () {
+                completed = !completed;
+                safeWrite("hm-daily-complete-" + dateKey, completed ? "yes" : "no");
+                renderProgress();
+                if (typeof showNotification === "function") {
+                    showNotification(completed
+                        ? "Mission complete. Small moves compound. Come back tomorrow."
+                        : "Mission marked incomplete. You can finish it today.");
+                } else if (notification && notificationText) {
+                    notificationText.textContent = completed
+                        ? "Mission complete. Small moves compound. Come back tomorrow."
+                        : "Mission marked incomplete. You can finish it today.";
+                    notification.classList.add("show");
+                }
+            });
+
+            renderProgress();
+        })();
+
+
         /* =================================================
            LOADER
         ================================================= */
