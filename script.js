@@ -74,6 +74,7 @@
             var mindsetMove = document.getElementById("mindsetMove");
             var moneyMove = document.getElementById("moneyMove");
             var aiMove = document.getElementById("aiMove");
+            var dailyStreak = document.getElementById("dailyStreak");
 
             if (!dailyComplete || !dailyTitle) return;
 
@@ -145,6 +146,20 @@
 
             var completed = safeRead("hm-daily-complete-" + dateKey) === "yes";
 
+            function getCurrentStreak() {
+                var cursor = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+                if (!completed) cursor.setDate(cursor.getDate() - 1);
+
+                var streak = 0;
+                for (var i = 0; i < 366; i += 1) {
+                    var key = "hm-daily-complete-" + localDateKey(cursor);
+                    if (safeRead(key) !== "yes") break;
+                    streak += 1;
+                    cursor.setDate(cursor.getDate() - 1);
+                }
+                return streak;
+            }
+
             function renderProgress() {
                 dailyComplete.classList.toggle("is-complete", completed);
                 dailyComplete.setAttribute("aria-pressed", completed ? "true" : "false");
@@ -153,6 +168,7 @@
                     : 'Complete Today\'s Mission <span aria-hidden="true">→</span>';
                 if (dailyProgressText) dailyProgressText.textContent = completed ? "1 / 1" : "0 / 1";
                 if (dailyProgressBar) dailyProgressBar.style.width = completed ? "100%" : "0%";
+                if (dailyStreak) dailyStreak.textContent = String(getCurrentStreak());
                 if (completed) {
                     dailyComplete.setAttribute("aria-label", "Today's mission completed. Activate to undo.");
                 } else {
