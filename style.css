@@ -4370,3 +4370,170 @@ a:focus-visible {
         transform: none;
     }
 }
+
+
+/* =========================================================
+   V8 — EXPLORE CATEGORY ARTWORK
+   Lightweight CSS illustrations: no image downloads.
+========================================================= */
+
+.explore-card {
+    isolation: isolate;
+}
+
+.explore-card > .explore-art {
+    position: absolute;
+    z-index: 0;
+    top: 25px;
+    right: 20px;
+    width: 132px;
+    height: 132px;
+    pointer-events: none;
+    opacity: .92;
+    overflow: hidden;
+    border: 1px solid rgba(255,138,0,.13);
+    border-radius: 18px;
+    background:
+        linear-gradient(135deg, rgba(255,138,0,.055), rgba(255,255,255,.012));
+}
+
+.explore-art::before,
+.explore-art::after,
+.explore-art .art-core,
+.explore-art .art-orbit {
+    content: "";
+    position: absolute;
+    display: block;
+}
+
+.explore-art::before {
+    inset: 0;
+    opacity: .45;
+    background-image: linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px);
+    background-size: 17px 17px;
+}
+
+.explore-art::after {
+    width: 88px;
+    height: 88px;
+    top: 19px;
+    left: 21px;
+    border: 1px solid rgba(255,138,0,.34);
+    border-radius: 50%;
+    box-shadow: 0 0 28px rgba(255,138,0,.08), inset 0 0 18px rgba(255,138,0,.05);
+}
+
+.explore-art .art-core {
+    z-index: 1;
+    width: 37px;
+    height: 37px;
+    top: 45px;
+    left: 47px;
+    border-radius: 11px;
+    transform: rotate(45deg);
+    background: linear-gradient(135deg, #ffb347, #ff7900 70%);
+    box-shadow: 0 0 26px rgba(255,138,0,.25);
+}
+
+.explore-art .art-orbit {
+    z-index: 2;
+    width: 112px;
+    height: 42px;
+    top: 42px;
+    left: 9px;
+    border: 1px solid rgba(255,255,255,.24);
+    border-radius: 50%;
+    transform: rotate(-38deg);
+}
+
+.explore-art .art-tag {
+    position: absolute;
+    z-index: 3;
+    left: 10px;
+    bottom: 9px;
+    color: rgba(255,255,255,.52);
+    font: 700 7px/1 "Space Grotesk", sans-serif;
+    letter-spacing: .12em;
+}
+
+.explore-card > .card-number,
+.explore-card > div,
+.explore-card > .card-arrow {
+    position: relative;
+    z-index: 2;
+}
+
+.explore-card > div {
+    max-width: 100%;
+}
+
+.explore-card h3,
+.explore-card .card-description {
+    max-width: 78%;
+}
+
+.explore-card.card-featured .explore-art {
+    width: 190px;
+    height: 190px;
+    top: 32px;
+    right: 28px;
+    border-radius: 24px;
+    opacity: .8;
+}
+
+.explore-card.card-featured .explore-art::after {
+    width: 132px;
+    height: 132px;
+    top: 27px;
+    left: 28px;
+}
+
+.explore-card.card-featured .explore-art .art-core {
+    width: 52px;
+    height: 52px;
+    top: 67px;
+    left: 68px;
+}
+
+.explore-card.card-featured .explore-art .art-orbit {
+    width: 162px;
+    height: 58px;
+    top: 63px;
+    left: 13px;
+}
+
+/* Each category gets its own visual language. */
+.art-mindset .art-core { border-radius: 50% !important; transform: none !important; }
+.art-money .art-core { border-radius: 5px !important; transform: rotate(45deg) scale(.82) !important; }
+.art-business .art-core { border-radius: 4px !important; transform: rotate(0) !important; }
+.art-ai .art-core { clip-path: polygon(50% 0, 100% 25%, 82% 100%, 18% 100%, 0 25%); transform: none !important; }
+.art-digital .art-core { border-radius: 2px !important; transform: rotate(0) scale(.9) !important; }
+.art-opportunities .art-core { clip-path: polygon(50% 0, 100% 100%, 0 100%); transform: none !important; }
+.art-creator .art-core { border-radius: 50% 50% 4px 4px !important; transform: rotate(-12deg) !important; }
+.art-onlinebusiness .art-core { border-radius: 50% 4px 50% 4px !important; transform: rotate(45deg) !important; }
+
+.art-money::after { border-style: dashed; }
+.art-ai::after { border-radius: 24%; transform: rotate(45deg); }
+.art-digital::after { border-radius: 8px; }
+.art-opportunities::after { border-style: dashed; transform: rotate(30deg); }
+.art-creator::after { border-radius: 12px 50% 12px 50%; transform: rotate(-18deg); }
+.art-onlinebusiness::after { border-radius: 8px; transform: rotate(45deg); }
+
+@media (max-width: 760px) {
+    .explore-card > .explore-art {
+        width: 104px;
+        height: 104px;
+        top: 20px;
+        right: 16px;
+        opacity: .65;
+    }
+    .explore-art::after { width: 68px; height: 68px; top: 16px; left: 17px; }
+    .explore-art .art-core { width: 29px; height: 29px; top: 36px; left: 37px; }
+    .explore-art .art-orbit { width: 88px; height: 34px; top: 33px; left: 7px; }
+    .explore-card h3,
+    .explore-card .card-description { max-width: 100%; }
+    .explore-card.card-featured .explore-art { width: 132px; height: 132px; top: 20px; right: 16px; }
+    .explore-card.card-featured .explore-art::after { width: 88px; height: 88px; top: 19px; left: 21px; }
+    .explore-card.card-featured .explore-art .art-core { width: 37px; height: 37px; top: 45px; left: 47px; }
+    .explore-card.card-featured .explore-art .art-orbit { width: 112px; height: 42px; top: 42px; left: 9px; }
+}
