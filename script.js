@@ -884,6 +884,92 @@
             },
 
 
+            creator: {
+
+                label: "CREATOR GROWTH",
+
+                title:
+                    "Build An Audience With Intention.",
+
+                description:
+                    "Learn the foundations of creating useful content, developing a recognizable brand and growing an audience over time.",
+
+                resources: [
+
+                    {
+                        title: "Create For A Clear Audience",
+
+                        text:
+                            "Choose a specific audience and understand what they care about. Content becomes stronger when it is made for real people, not everyone.",
+
+                        tag: "CONTENT"
+                    },
+
+                    {
+                        title: "Build A Recognizable Identity",
+
+                        text:
+                            "Use a consistent point of view, message and visual style so people can understand what your brand stands for.",
+
+                        tag: "BRANDING"
+                    },
+
+                    {
+                        title: "Turn Attention Into Trust",
+
+                        text:
+                            "Focus on useful content and honest communication. An audience is more valuable when people trust your work.",
+
+                        tag: "GROWTH"
+                    }
+
+                ]
+            },
+
+
+            onlinebusiness: {
+
+                label: "ONLINE BUSINESS",
+
+                title:
+                    "Understand The Digital Business Landscape.",
+
+                description:
+                    "Explore practical online business models and learn how to evaluate tools, platforms and opportunities before investing time or money.",
+
+                resources: [
+
+                    {
+                        title: "Know The Business Model",
+
+                        text:
+                            "Understand who the customer is, what value is delivered, how the business earns revenue and what costs or risks are involved.",
+
+                        tag: "BUSINESS"
+                    },
+
+                    {
+                        title: "Test Before You Invest",
+
+                        text:
+                            "Start with research and a small experiment. Avoid spending money on a platform, course or tool before you understand what it offers and whether it fits your needs.",
+
+                        tag: "VALIDATION"
+                    },
+
+                    {
+                        title: "Build Value First",
+
+                        text:
+                            "Focus on solving a real problem and developing useful skills. Be cautious of promises of guaranteed income or effortless passive earnings.",
+
+                        tag: "TRUST"
+                    }
+
+                ]
+            },
+
+
             opportunities: {
 
                 label: "OPPORTUNITIES",
