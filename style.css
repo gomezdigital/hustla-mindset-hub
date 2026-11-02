@@ -4683,3 +4683,214 @@ a:focus-visible {
         transition: none;
     }
 }
+
+
+/* =========================================================
+   V10 — PERSONAL GROWTH PATHWAY BUILDER
+========================================================= */
+
+.pathway-builder {
+    margin: 0 0 32px;
+    padding: 25px;
+    border: 1px solid rgba(255,138,0,.18);
+    border-radius: var(--radius-md);
+    background:
+        radial-gradient(circle at 95% 0%, rgba(255,138,0,.075), transparent 34%),
+        linear-gradient(145deg, rgba(255,255,255,.025), rgba(255,255,255,.006));
+}
+
+.pathway-heading {
+    display: grid;
+    grid-template-columns: minmax(0,1fr) minmax(230px,.6fr);
+    align-items: end;
+    gap: 28px;
+    margin-bottom: 22px;
+}
+
+.pathway-heading .section-label {
+    margin-bottom: 10px;
+}
+
+.pathway-heading h3 {
+    margin: 0;
+    font: 700 clamp(22px,3vw,34px)/1.05 "Space Grotesk", sans-serif;
+    letter-spacing: -.045em;
+}
+
+.pathway-heading h3 span {
+    color: var(--lime);
+}
+
+.pathway-heading > p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.75;
+}
+
+.pathway-goals {
+    display: grid;
+    grid-template-columns: repeat(4,minmax(0,1fr));
+    gap: 9px;
+}
+
+.pathway-goal {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: 130px;
+    padding: 16px;
+    text-align: left;
+    border: 1px solid var(--border);
+    border-radius: 11px;
+    background: rgba(0,0,0,.24);
+    color: var(--white);
+    cursor: pointer;
+    transition: transform var(--transition), border-color var(--transition), background var(--transition);
+}
+
+.pathway-goal:hover {
+    transform: translateY(-3px);
+    border-color: rgba(255,138,0,.35);
+}
+
+.pathway-goal.is-selected {
+    border-color: rgba(255,138,0,.62);
+    background: linear-gradient(145deg, rgba(255,138,0,.11), rgba(255,138,0,.025));
+    box-shadow: inset 0 0 0 1px rgba(255,138,0,.08);
+}
+
+.pathway-goal-icon {
+    display: grid;
+    place-items: center;
+    width: 29px;
+    height: 29px;
+    margin-bottom: 15px;
+    border: 1px solid rgba(255,138,0,.25);
+    border-radius: 8px;
+    color: var(--lime);
+    font: 700 9px "Space Grotesk", sans-serif;
+}
+
+.pathway-goal strong {
+    font: 600 13px "Space Grotesk", sans-serif;
+}
+
+.pathway-goal small {
+    margin-top: 6px;
+    color: var(--muted);
+    font-size: 10px;
+    line-height: 1.5;
+}
+
+.pathway-result {
+    margin-top: 12px;
+    padding: 22px;
+    border: 1px solid rgba(255,255,255,.075);
+    border-radius: 11px;
+    background: rgba(0,0,0,.35);
+}
+
+.pathway-result-top,
+.pathway-result-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.pathway-result-top {
+    color: var(--muted);
+    font: 700 8px "Space Grotesk", sans-serif;
+    letter-spacing: .14em;
+}
+
+.pathway-result-top span:last-child {
+    color: var(--lime);
+}
+
+.pathway-result h4 {
+    margin: 15px 0 7px;
+    font: 600 clamp(20px,2.5vw,27px)/1.15 "Space Grotesk", sans-serif;
+    letter-spacing: -.035em;
+}
+
+.pathway-result > p {
+    max-width: 680px;
+    margin: 0;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.pathway-steps {
+    display: grid;
+    grid-template-columns: repeat(3,minmax(0,1fr));
+    gap: 10px;
+    counter-reset: pathway;
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.pathway-steps li {
+    position: relative;
+    min-height: 76px;
+    padding: 14px 13px 13px 39px;
+    border: 1px solid rgba(255,255,255,.065);
+    border-radius: 8px;
+    color: rgba(255,255,255,.78);
+    font-size: 11px;
+    line-height: 1.6;
+    counter-increment: pathway;
+}
+
+.pathway-steps li::before {
+    content: "0" counter(pathway);
+    position: absolute;
+    top: 14px;
+    left: 13px;
+    color: var(--lime);
+    font: 700 9px "Space Grotesk", sans-serif;
+}
+
+.pathway-result-bottom {
+    padding-top: 15px;
+    border-top: 1px solid rgba(255,255,255,.065);
+}
+
+.pathway-result-bottom > span {
+    max-width: 440px;
+    color: var(--muted);
+    font-size: 10px;
+    line-height: 1.6;
+}
+
+.pathway-result-bottom .button {
+    flex: 0 0 auto;
+}
+
+.pathway-goal:focus-visible,
+.pathway-open:focus-visible {
+    outline: 2px solid var(--lime);
+    outline-offset: 3px;
+}
+
+@media (max-width: 900px) {
+    .pathway-goals { grid-template-columns: repeat(2,minmax(0,1fr)); }
+    .pathway-steps { grid-template-columns: 1fr; }
+    .pathway-steps li { min-height: auto; }
+}
+
+@media (max-width: 760px) {
+    .pathway-builder { padding: 16px; }
+    .pathway-heading { grid-template-columns: 1fr; gap: 10px; }
+    .pathway-goal { min-height: 118px; padding: 13px; }
+    .pathway-result { padding: 16px; }
+    .pathway-result-bottom { align-items: stretch; flex-direction: column; }
+    .pathway-result-bottom .button { width: 100%; justify-content: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .pathway-goal { transition: none; }
+}
