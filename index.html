@@ -853,6 +853,32 @@
         </div>
 
 
+        <div class="pathway-builder reveal" id="pathwayBuilder">
+            <div class="pathway-heading">
+                <div>
+                    <p class="section-label">YOUR NEXT MOVE</p>
+                    <h3>WHAT ARE YOU HERE TO <span>DO?</span></h3>
+                </div>
+                <p>Choose a direction. We’ll map out a simple starting path using the resources already inside Hustla Mindset.</p>
+            </div>
+            <div class="pathway-goals" role="group" aria-label="Choose your growth goal">
+                <button class="pathway-goal is-selected" type="button" data-goal="learn" aria-pressed="true"><span class="pathway-goal-icon">01</span><strong>Learn a skill</strong><small>Build knowledge you can use.</small></button>
+                <button class="pathway-goal" type="button" data-goal="build" aria-pressed="false"><span class="pathway-goal-icon">02</span><strong>Build something</strong><small>Turn an idea into a project.</small></button>
+                <button class="pathway-goal" type="button" data-goal="creator" aria-pressed="false"><span class="pathway-goal-icon">03</span><strong>Grow an audience</strong><small>Create content and build trust.</small></button>
+                <button class="pathway-goal" type="button" data-goal="opportunity" aria-pressed="false"><span class="pathway-goal-icon">04</span><strong>Find opportunities</strong><small>Explore jobs, clients and programs.</small></button>
+            </div>
+            <div class="pathway-result" id="pathwayResult" aria-live="polite">
+                <div class="pathway-result-top"><span>YOUR STARTING PATH</span><span id="pathwayDuration">3 SIMPLE STEPS</span></div>
+                <h4 id="pathwayTitle">Start with one practical skill.</h4>
+                <p id="pathwayIntro">Choose a skill that connects to a real interest or problem you want to solve.</p>
+                <ol class="pathway-steps" id="pathwaySteps"><li>Explore digital skills and choose one topic.</li><li>Learn the basics and take notes.</li><li>Make a small example to prove what you learned.</li></ol>
+                <div class="pathway-result-bottom">
+                    <span id="pathwayTip">Keep it small. Consistency beats trying to master everything at once.</span>
+                    <button class="button button-primary" id="pathwayOpen" type="button">Open your first resource <span aria-hidden="true">→</span></button>
+                </div>
+            </div>
+        </div>
+
         <div class="explore-controls reveal" aria-label="Explore filters">
             <label class="explore-search-wrap">
                 <span class="search-icon" aria-hidden="true">⌕</span>
