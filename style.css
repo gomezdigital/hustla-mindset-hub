@@ -4537,3 +4537,149 @@ a:focus-visible {
     .explore-card.card-featured .explore-art .art-core { width: 37px; height: 37px; top: 45px; left: 47px; }
     .explore-card.card-featured .explore-art .art-orbit { width: 112px; height: 42px; top: 42px; left: 9px; }
 }
+
+
+/* =========================================================
+   V9 — EXPLORE DISCOVERY CONTROLS
+========================================================= */
+
+.explore-controls {
+    margin: -18px 0 28px;
+    padding: 18px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background: linear-gradient(145deg, rgba(255,138,0,.035), rgba(255,255,255,.012));
+}
+
+.explore-search-wrap {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 52px;
+    padding: 0 15px;
+    border: 1px solid rgba(255,255,255,.09);
+    border-radius: 10px;
+    background: rgba(0,0,0,.34);
+}
+
+.explore-search-wrap:focus-within {
+    border-color: rgba(255,138,0,.55);
+    box-shadow: 0 0 0 3px rgba(255,138,0,.07);
+}
+
+.explore-search-wrap .search-icon {
+    color: var(--lime);
+    font-size: 25px;
+    line-height: 1;
+}
+
+.explore-search-wrap input {
+    flex: 1;
+    width: 100%;
+    min-width: 0;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: var(--white);
+    font: 500 13px "DM Sans", sans-serif;
+}
+
+.explore-search-wrap input::placeholder {
+    color: var(--muted);
+}
+
+.explore-search-wrap kbd {
+    color: rgba(255,255,255,.36);
+    font: 700 8px "Space Grotesk", sans-serif;
+    letter-spacing: .12em;
+}
+
+.explore-filter-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.explore-filter {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 35px;
+    padding: 0 13px;
+    border: 1px solid rgba(255,255,255,.09);
+    border-radius: 100px;
+    background: rgba(255,255,255,.025);
+    color: var(--muted);
+    font: 600 11px "DM Sans", sans-serif;
+    cursor: pointer;
+    transition: color var(--transition), border-color var(--transition), background var(--transition), transform var(--transition);
+}
+
+.explore-filter:hover {
+    color: var(--white);
+    border-color: rgba(255,138,0,.35);
+    transform: translateY(-1px);
+}
+
+.explore-filter.is-active {
+    color: #080808;
+    border-color: #ff8a00;
+    background: #ff8a00;
+}
+
+.explore-filter span {
+    font-size: 8px;
+    opacity: .7;
+}
+
+.explore-results {
+    margin: 13px 2px 0;
+    color: var(--muted);
+    font-size: 10px;
+    letter-spacing: .025em;
+}
+
+.explore-card[hidden] {
+    display: none !important;
+}
+
+.explore-grid {
+    align-items: stretch;
+}
+
+@media (max-width: 760px) {
+    .explore-controls {
+        margin-top: -12px;
+        padding: 13px;
+    }
+
+    .explore-search-wrap {
+        min-height: 48px;
+        padding: 0 11px;
+        gap: 8px;
+    }
+
+    .explore-search-wrap kbd {
+        display: none;
+    }
+
+    .explore-filter-row {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding: 1px 1px 7px;
+        scrollbar-width: thin;
+    }
+
+    .explore-filter {
+        flex: 0 0 auto;
+        min-height: 34px;
+        padding: 0 12px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .explore-filter {
+        transition: none;
+    }
+}
