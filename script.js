@@ -1332,6 +1332,83 @@
 
 
         /* =================================================
+           EXPLORE DISCOVERY FILTERS
+        ================================================= */
+
+        (function initExploreDiscovery() {
+            var exploreGrid = document.querySelector(".explore-grid");
+            var searchInput = document.getElementById("exploreSearch");
+            var filterButtons = document.querySelectorAll(".explore-filter");
+            var resultsLabel = document.getElementById("exploreResults");
+
+            if (!exploreGrid || !searchInput || !filterButtons.length) return;
+
+            var cards = Array.prototype.slice.call(
+                exploreGrid.querySelectorAll(".explore-card")
+            );
+            var activeFilter = "all";
+
+            var filterNames = {
+                all: "all 8 areas",
+                learn: "learning and skill-building areas",
+                build: "building and project areas",
+                earn: "business and money areas",
+                create: "creative and creator areas",
+                opportunities: "opportunity resources"
+            };
+
+            function applyExploreFilters() {
+                var query = searchInput.value.trim().toLowerCase();
+                var visible = 0;
+
+                cards.forEach(function (card) {
+                    var tags = (card.getAttribute("data-explore-tags") || "").split(/\s+/);
+                    var text = (card.textContent || "").toLowerCase();
+                    var matchesFilter = activeFilter === "all" || tags.indexOf(activeFilter) !== -1;
+                    var matchesSearch = !query || text.indexOf(query) !== -1;
+                    var show = matchesFilter && matchesSearch;
+
+                    card.hidden = !show;
+                    if (show) visible++;
+                });
+
+                if (resultsLabel) {
+                    resultsLabel.textContent = visible === 0
+                        ? "No areas found. Try another search or filter."
+                        : "Showing " + visible + " of " + cards.length + " areas · " +
+                          (query ? "matching “" + searchInput.value.trim() + "”" : filterNames[activeFilter]);
+                }
+            }
+
+            filterButtons.forEach(function (button) {
+                button.addEventListener("click", function () {
+                    activeFilter = button.getAttribute("data-filter") || "all";
+
+                    filterButtons.forEach(function (item) {
+                        var selected = item === button;
+                        item.classList.toggle("is-active", selected);
+                        item.setAttribute("aria-pressed", selected ? "true" : "false");
+                    });
+
+                    applyExploreFilters();
+                });
+            });
+
+            searchInput.addEventListener("input", applyExploreFilters);
+
+            searchInput.addEventListener("keydown", function (event) {
+                if (event.key === "Escape") {
+                    searchInput.value = "";
+                    applyExploreFilters();
+                    searchInput.blur();
+                }
+            });
+
+            applyExploreFilters();
+        })();
+
+
+        /* =================================================
            EXPLORE CARDS
         ================================================= */
 
