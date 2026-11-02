@@ -1332,6 +1332,98 @@
 
 
         /* =================================================
+           GOAL-BASED PATHWAY BUILDER
+        ================================================= */
+
+        (function initPathwayBuilder() {
+            var goalButtons = document.querySelectorAll(".pathway-goal");
+            var title = document.getElementById("pathwayTitle");
+            var intro = document.getElementById("pathwayIntro");
+            var steps = document.getElementById("pathwaySteps");
+            var tip = document.getElementById("pathwayTip");
+            var openButton = document.getElementById("pathwayOpen");
+
+            if (!goalButtons.length || !title || !steps || !openButton) return;
+
+            var paths = {
+                learn: {
+                    title: "Start with one practical skill.",
+                    intro: "Choose a skill that connects to a real interest or problem you want to solve.",
+                    steps: ["Explore Digital Skills and choose one topic.", "Learn the basics and take notes on what matters.", "Make a small example to prove what you learned."],
+                    tip: "Keep it small. Consistency beats trying to master everything at once.",
+                    category: "digital",
+                    button: "Open Digital Skills"
+                },
+                build: {
+                    title: "Turn one idea into a small project.",
+                    intro: "You do not need a perfect plan. Start with a problem, a simple solution and a first version.",
+                    steps: ["Explore Business or Online Business and choose a problem.", "Define who the project helps and what it should do.", "Build a tiny first version and ask for feedback."],
+                    tip: "Start with a prototype. Avoid spending money before you validate the idea.",
+                    category: "business",
+                    button: "Explore Business"
+                },
+                creator: {
+                    title: "Create something worth following.",
+                    intro: "Build around a topic you care about and aim to help a specific audience.",
+                    steps: ["Explore Creator Growth and define who you want to help.", "Choose one content format and plan three useful posts.", "Publish, learn from feedback and improve your next post."],
+                    tip: "Earn trust first. Avoid fake engagement and promises you cannot support.",
+                    category: "creator",
+                    button: "Open Creator Growth"
+                },
+                opportunity: {
+                    title: "Find an opportunity that fits your next step.",
+                    intro: "Look for legitimate opportunities that match your skills, location and eligibility.",
+                    steps: ["Explore Opportunities and choose a direction: study, work or clients.", "Check the official requirements, deadlines and age restrictions.", "Prepare a small portfolio, application or clear next action."],
+                    tip: "Verify every opportunity on its official website. Never pay to unlock a promise of guaranteed income.",
+                    category: "opportunities",
+                    button: "Explore Opportunities"
+                }
+            };
+
+            var selectedGoal = "learn";
+
+            function showPath(goal) {
+                var path = paths[goal] || paths.learn;
+                selectedGoal = goal;
+                title.textContent = path.title;
+                intro.textContent = path.intro;
+                tip.textContent = path.tip;
+                openButton.innerHTML = path.button + ' <span aria-hidden="true">→</span>';
+                steps.innerHTML = "";
+
+                path.steps.forEach(function (step) {
+                    var item = document.createElement("li");
+                    item.textContent = step;
+                    steps.appendChild(item);
+                });
+
+                goalButtons.forEach(function (button) {
+                    var selected = button.getAttribute("data-goal") === goal;
+                    button.classList.toggle("is-selected", selected);
+                    button.setAttribute("aria-pressed", selected ? "true" : "false");
+                });
+            }
+
+            goalButtons.forEach(function (button) {
+                button.addEventListener("click", function () {
+                    showPath(button.getAttribute("data-goal"));
+                });
+            });
+
+            openButton.addEventListener("click", function () {
+                var path = paths[selectedGoal] || paths.learn;
+                var card = document.querySelector('.explore-card[data-category="' + path.category + '"]');
+                if (card) {
+                    card.click();
+                    card.scrollIntoView({ behavior: "smooth", block: "center" });
+                }
+            });
+
+            showPath(selectedGoal);
+        })();
+
+
+        /* =================================================
            EXPLORE DISCOVERY FILTERS
         ================================================= */
 
