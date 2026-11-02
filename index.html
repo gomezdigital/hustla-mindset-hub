@@ -853,13 +853,30 @@
         </div>
 
 
+        <div class="explore-controls reveal" aria-label="Explore filters">
+            <label class="explore-search-wrap">
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <input id="exploreSearch" type="search" placeholder="Search skills, topics, or interests..." aria-label="Search Explore categories">
+                <kbd>SEARCH</kbd>
+            </label>
+            <div class="explore-filter-row" role="group" aria-label="Filter Explore categories">
+                <button class="explore-filter is-active" type="button" data-filter="all" aria-pressed="true">All areas <span>08</span></button>
+                <button class="explore-filter" type="button" data-filter="learn" aria-pressed="false">Learn</button>
+                <button class="explore-filter" type="button" data-filter="build" aria-pressed="false">Build</button>
+                <button class="explore-filter" type="button" data-filter="earn" aria-pressed="false">Earn</button>
+                <button class="explore-filter" type="button" data-filter="create" aria-pressed="false">Create</button>
+                <button class="explore-filter" type="button" data-filter="opportunities" aria-pressed="false">Opportunities</button>
+            </div>
+            <p class="explore-results" id="exploreResults" aria-live="polite">Showing all 8 areas</p>
+        </div>
+
         <div class="explore-grid">
 
 
             <a
                 href="#"
                 class="explore-card card-featured reveal"
-                data-category="mindset"
+                data-category="mindset" data-explore-tags="learn"
                 aria-label="Explore mindset content"
             >
 
@@ -898,7 +915,7 @@
             <a
                 href="#"
                 class="explore-card reveal"
-                data-category="money"
+                data-category="money" data-explore-tags="earn"
                 aria-label="Explore money content"
             >
 
@@ -934,7 +951,7 @@
             <a
                 href="#"
                 class="explore-card reveal"
-                data-category="business"
+                data-category="business" data-explore-tags="build earn create"
                 aria-label="Explore business content"
             >
 
@@ -969,7 +986,7 @@
             <a
                 href="#"
                 class="explore-card reveal"
-                data-category="ai"
+                data-category="ai" data-explore-tags="learn build"
                 aria-label="Explore AI content"
             >
 
@@ -1005,7 +1022,7 @@
             <a
                 href="#"
                 class="explore-card reveal"
-                data-category="digital"
+                data-category="digital" data-explore-tags="learn build create"
                 aria-label="Explore digital skills content"
             >
 
@@ -1041,7 +1058,7 @@
             <a
                 href="#"
                 class="explore-card reveal"
-                data-category="opportunities"
+                data-category="opportunities" data-explore-tags="opportunities"
                 aria-label="Explore opportunities"
             >
 
@@ -1077,7 +1094,7 @@
             <a
                 href="#"
                 class="explore-card reveal"
-                data-category="creator"
+                data-category="creator" data-explore-tags="create build"
                 aria-label="Explore creator growth content"
             >
 
@@ -1113,7 +1130,7 @@
             <a
                 href="#"
                 class="explore-card reveal"
-                data-category="onlinebusiness"
+                data-category="onlinebusiness" data-explore-tags="build earn"
                 aria-label="Explore online business content"
             >
 
